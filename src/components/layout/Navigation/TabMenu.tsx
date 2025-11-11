@@ -15,7 +15,7 @@ interface TabMenuProps {
   isScrolled?: boolean;
 }
 
-const TAB_LEAVE_DELAY = 150; // Delay before clearing hover when leaving a tab
+const TAB_LEAVE_DELAY = 150;
 
 export default function TabMenu({
   items,
@@ -29,21 +29,17 @@ export default function TabMenu({
   const leaveTimeoutRef = useRef<Map<number, NodeJS.Timeout>>(new Map());
   const currentHoveredRef = useRef<TabItem | null>(hoveredTab);
 
-  // Update ref when hoveredTab changes
   useEffect(() => {
     currentHoveredRef.current = hoveredTab;
   }, [hoveredTab]);
 
   const handleTabMouseLeave = (item: TabItem) => {
-    // Clear any existing timeout for this item
     const existingTimeout = leaveTimeoutRef.current.get(item.id);
     if (existingTimeout) {
       clearTimeout(existingTimeout);
     }
 
-    // Set a delay before clearing hover
     const timeout = setTimeout(() => {
-      // Only clear if this item is still the hovered tab (user hasn't hovered another)
       if (currentHoveredRef.current?.id === item.id) {
         setHoveredTab(null);
       }
@@ -54,15 +50,11 @@ export default function TabMenu({
   };
 
   const handleTabMouseEnter = (item: TabItem) => {
-    // Clear any pending leave timeouts for all items
     leaveTimeoutRef.current.forEach((timeout) => clearTimeout(timeout));
     leaveTimeoutRef.current.clear();
-
-    // Immediately set hover when entering
     setHoveredTab(item);
   };
 
-  // Cleanup all timeouts on unmount
   useEffect(() => {
     const timeoutsMap = leaveTimeoutRef.current;
     return () => {
@@ -72,64 +64,63 @@ export default function TabMenu({
   }, []);
 
   return (
-    <div
-      className={`relative  ease-out `}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ul className="flex items-center justify-center overflow-x-auto scrollbar-hide">
+    <div className="relative">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
+        <ul className="flex items-center justify-center gap-1 overflow-x-auto scrollbar-hide">
           {items.map((item) => (
             <li key={item.id} className="shrink-0">
               <button
-                className="py-2 relative  transition-colors"
+                className="relative transition-all duration-150"
                 onClick={() => setActiveTab(item)}
                 onMouseEnter={() => handleTabMouseEnter(item)}
                 onMouseLeave={() => handleTabMouseLeave(item)}
               >
-                <div className="px-5 py-2 relative cursor-pointer">
-                  {/* Hover background - rendered first so it's behind the text */}
+                <div className="px-4 py-2.5 relative cursor-pointer">
+                  {/* Hover background */}
                   {hoveredTab?.id === item.id && (
                     <motion.div
                       layoutId="hover-bg"
                       className={`absolute inset-0 ${
-                        isScrolled ? "bg-white/20" : "bg-transparent"
+                        isScrolled ? "bg-slate-100" : "bg-white/10"
                       }`}
                       style={{ borderRadius: 6, zIndex: 0 }}
-                      transition={{ duration: 0.2 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 30,
+                      }}
                     />
                   )}
-                  {/* Text - rendered after background so it's on top */}
+
+                  {/* Text */}
                   <span
-                    className={`relative z-10  ease-out ${
+                    className={`relative z-10 font-medium text-sm transition-colors duration-150 ${
                       isScrolled
-                        ? hoveredTab?.id === item.id
+                        ? hoveredTab?.id === item.id || activeTab.id === item.id
                           ? "text-slate-900"
-                          : activeTab.id === item.id
-                            ? "text-slate-900"
-                            : "text-slate-600"
-                        : hoveredTab?.id === item.id
+                          : "text-slate-600"
+                        : hoveredTab?.id === item.id || activeTab.id === item.id
                           ? "text-white"
-                          : activeTab.id === item.id
-                            ? "text-white"
-                            : "text-white/80"
+                          : "text-white/80"
                     }`}
                   >
                     {item.title}
                   </span>
                 </div>
+
+                {/* Active indicator */}
                 {activeTab.id === item.id && (
                   <motion.div
                     layoutId="active"
-                    className="absolute bottom-0 left-0 right-0 w-full h-0.5 bg-blue-600"
+                    className={`absolute bottom-0 left-0 right-0 w-full h-[2px] ${
+                      isScrolled ? "bg-blue-600" : "bg-white"
+                    }`}
                     style={{ zIndex: 20 }}
-                    transition={{ duration: 0.2 }}
-                  />
-                )}
-                {hoveredTab?.id === item.id && (
-                  <motion.div
-                    layoutId="hover"
-                    className="absolute bottom-0 left-0 right-0 w-full h-0.5 bg-blue-600"
-                    style={{ zIndex: 20 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 30,
+                    }}
                   />
                 )}
               </button>
@@ -138,12 +129,11 @@ export default function TabMenu({
         </ul>
       </div>
 
-      {/* Mega Menu - Only shows on hover and on desktop */}
+      {/* Mega Menu */}
       {hoveredTab && megaMenuData && (
         <div
           className="hidden md:block"
           onMouseEnter={() => {
-            // Clear any pending leave timeouts when entering mega menu
             leaveTimeoutRef.current.forEach((timeout) => clearTimeout(timeout));
             leaveTimeoutRef.current.clear();
             setHoveredTab(hoveredTab);
