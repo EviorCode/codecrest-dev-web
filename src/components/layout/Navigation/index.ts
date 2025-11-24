@@ -1,3 +1,1 @@
-import Navigation from "./navigation";
-
-export { Navigation };
+export { default as Navigation } from "./navigation";
