@@ -71,16 +71,14 @@ export interface ProjectDetail {
   // Visuals
   images: ProjectImage[];
 
-  // Technical Details
-  technologies: ProjectTechnology[];
   architecture?: string;
+
+  technologies?: ProjectTechnology[];
+  timeline?: ProjectTimeline[];
 
   // Results
   metrics: ProjectMetric[];
   keyResults: string[];
-
-  // Timeline
-  timeline: ProjectTimeline[];
 
   // Team
   teamSize?: number;
@@ -101,370 +99,969 @@ export interface ProjectDetail {
 
 export const PROJECTS_DATA: ProjectDetail[] = [
   {
-    id: "enterprise-ai-platform",
-    slug: "enterprise-ai-platform",
-    title: "Enterprise AI Platform for Financial Services",
+    id: "vmeals-healthy-meal-delivery",
+    slug: "vmeals-healthy-meal-delivery",
+    title: "VMeals Healthy Meal Delivery Service",
     subtitle:
-      "Building a production-grade GenAI platform that processes 2M+ transactions daily with 99.9% accuracy",
-    category: "Artificial Intelligence",
-    industry: "Financial Services",
+      "Providing fresh, personalized, and nutrition-focused meal plans delivered daily across UAE",
+    category: "Health & Wellness",
+    industry: "Food & Beverage",
     status: "completed",
-    completedAt: "2024-11-15T00:00:00.000Z",
-    startedAt: "2024-03-01T00:00:00.000Z",
-    duration: "8 months",
+    startedAt: "2023-06-01T00:00:00.000Z",
+    duration: "14 months",
 
     // Hero Section
-    heroImage:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2000&q=80",
-    heroTitle: "Enterprise AI Platform",
+    heroImage: "/vmeals-banner.png",
+    heroTitle: "Healthy Meals Delivered to Your Doorstep",
     heroDescription:
-      "A comprehensive GenAI platform that automates document processing, fraud detection, and customer service for one of the world's largest financial institutions.",
+      "VMeals offers a wide range of freshly prepared, portion-controlled healthy meals designed by expert nutritionists and chefs, catering to various fitness and wellness goals.",
 
     // Overview
     overview:
-      "We built a production-grade AI platform capable of processing millions of financial documents daily for a leading financial services institution. The platform integrates multiple GenAI models, real-time data pipelines, and enterprise-grade security to automate critical banking operations while maintaining regulatory compliance. The solution reduced manual processing time by 85% and improved accuracy rates from 92% to 99.9%.",
-    overviewImage:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
+      "VMeals is a trusted meal delivery service in Dubai and UAE focused on making healthy eating easy and accessible. With customizable plans for weight loss, muscle gain, wellness, or maintenance, meals are crafted fresh daily using nutrient-rich ingredients. The service emphasizes convenience, sustainability, and personalized nutrition to help clients maintain a balanced lifestyle without the hassle of shopping or cooking.",
 
     // Objectives
     objectives: [
-      "Automate document processing for loan applications, KYC documents, and compliance reports",
-      "Implement real-time fraud detection using advanced ML models",
-      "Build a scalable AI infrastructure capable of handling 2M+ transactions daily",
-      "Ensure 99.9% accuracy while maintaining regulatory compliance",
-      "Reduce manual processing time by 80%+",
-      "Create a unified platform for multiple AI use cases across the organization",
+      "Offer diverse meal plans customized to individual dietary and fitness goals",
+      "Deliver fresh, nutritious, and portion-controlled meals daily across UAE",
+      "Ensure high-quality preparation with expert nutritionists and chefs",
+      "Provide seamless, timely delivery and excellent customer service",
+      "Promote healthy lifestyle changes through convenient meal solutions",
+      "Use sustainable packaging and eco-friendly delivery practices",
     ],
 
     // Challenges
     challenges: [
       {
-        title: "Regulatory Compliance",
+        title: "Meeting Diverse Dietary Needs",
         description:
-          "Financial services require strict adherence to regulations like GDPR, PCI-DSS, and banking regulations. Every AI decision needed to be explainable, auditable, and compliant with data privacy laws.",
+          "Developing meal plans that accommodate a wide range of dietary restrictions, allergies, and preferences while maintaining nutritional balance.",
       },
       {
-        title: "Scale and Performance",
+        title: "Ensuring Freshness and Quality",
         description:
-          "The platform needed to process 2 million+ documents daily with sub-second latency for real-time fraud detection. Traditional architectures couldn't handle this volume.",
+          "Maintaining meal freshness and quality during daily preparation and delivery across a broad geographical area.",
       },
       {
-        title: "Data Quality and Integration",
+        title: "Scaling Delivery Operations",
         description:
-          "Integrating data from 15+ legacy systems with varying formats, quality, and update frequencies required sophisticated ETL pipelines and data validation.",
+          "Managing timely and efficient delivery logistics throughout Dubai and UAE to meet growing customer demand.",
       },
       {
-        title: "Model Accuracy and Reliability",
+        title: "Sustainability",
         description:
-          "Financial decisions require extremely high accuracy. We needed to achieve 99.9% accuracy while handling edge cases and maintaining consistency across different document types.",
+          "Adopting eco-friendly packaging solutions to reduce environmental impact while ensuring food safety and convenience.",
       },
     ],
 
     // Solutions
     solutions: [
       {
-        title: "Multi-Model Architecture",
+        title: "Expert-Curated Meal Plans",
         description:
-          "Implemented a hybrid architecture combining specialized models for different document types, with a unified orchestration layer that routes requests to the appropriate model based on document classification.",
+          "Nutritionists and dietitians design meal plans tailored to specific fitness goals and dietary needs, ensuring balanced nutrient intake.",
         image:
-          "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80",
+          "https://images.unsplash.com/photo-1665110180279-ee5372bb96bb?q=80&w=1738&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
       {
-        title: "Real-Time Data Pipeline",
+        title: "Fresh Daily Preparation",
         description:
-          "Built a Kafka-based streaming pipeline that processes documents in real-time, with automatic scaling to handle peak loads. The pipeline includes data validation, enrichment, and quality checks at each stage.",
+          "Meals are prepared fresh each day by professional chefs, guaranteeing taste and quality with every delivery.",
         image:
-          "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80",
+          "https://images.unsplash.com/photo-1758523417366-22dbbd2bf92f?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
       {
-        title: "Explainable AI Framework",
+        title: "Advanced Delivery Network",
         description:
-          "Developed a comprehensive explainability framework that provides detailed reasoning for every AI decision, enabling auditors to understand and validate model outputs. This includes attention visualizations, feature importance scores, and decision trees.",
+          "A robust delivery infrastructure ensures meals reach customers on time, covering all areas of Dubai and the UAE efficiently.",
         image:
-          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80",
+          "https://images.unsplash.com/photo-1582469062319-9d6a6a9eb4f2?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
       {
-        title: "Enterprise Security & Governance",
+        title: "Sustainable Packaging",
         description:
-          "Implemented end-to-end encryption, role-based access control, comprehensive audit logging, and automated compliance checks. All data processing happens within the client's secure infrastructure with no external API calls.",
+          "Use of biodegradable, eco-friendly containers that are convenient for reheating and disposal, aligning with VMeals' commitment to the environment.",
         image:
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
+          "https://images.unsplash.com/photo-1662556828484-2a531014489a?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
     ],
 
     // Images
     images: [
       {
-        url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2000&q=80",
-        alt: "AI Platform Dashboard",
+        url: "/vmeals-banner.png",
+        alt: "Fresh healthy meals from VMeals",
+        caption: "VMeals fresh healthy meals ready for delivery",
+        type: "hero",
+      },
+      {
+        url: "/vmeals-banner.png",
+        alt: "Custom meal plans by nutritionists",
+        caption: "Customized meal plans crafted by expert nutritionists",
+        type: "screenshot",
+      },
+      {
+        url: "/vmeals-banner.png",
+        alt: "Chef preparing meals",
+        caption: "Professional chefs preparing fresh meals daily",
+        type: "screenshot",
+      },
+      {
+        url: "/vmeals-banner.png",
+        alt: "Timely meal delivery",
+        caption: "Efficient delivery network ensures meals arrive fresh",
+        type: "screenshot",
+      },
+      {
+        url: "/vmeals-banner.png",
+        alt: "Eco-friendly packaging",
         caption:
-          "Real-time monitoring dashboard showing transaction processing metrics",
+          "Biodegradable containers maintaining quality and sustainability",
         type: "screenshot",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2000&q=80",
-        alt: "System Architecture",
-        caption: "High-level system architecture diagram",
-        type: "diagram",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80",
-        alt: "Document Processing Interface",
-        caption: "User interface for document review and validation",
-        type: "screenshot",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2000&q=80",
-        alt: "Fraud Detection Analytics",
-        caption: "Analytics dashboard for fraud detection patterns",
-        type: "screenshot",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=2000&q=80",
-        alt: "Model Training Pipeline",
-        caption: "ML model training and deployment pipeline",
-        type: "diagram",
       },
     ],
 
-    // Technologies
-    technologies: [
-      {
-        name: "Python",
-        category: "Backend",
-        description: "Core language for ML models and data processing",
-      },
-      {
-        name: "TensorFlow",
-        category: "AI/ML",
-        description: "Deep learning framework for custom models",
-      },
-      {
-        name: "OpenAI GPT-4",
-        category: "AI/ML",
-        description: "Foundation model for document understanding",
-      },
-      {
-        name: "Apache Kafka",
-        category: "Backend",
-        description: "Real-time streaming data pipeline",
-      },
-      {
-        name: "Kubernetes",
-        category: "DevOps",
-        description: "Container orchestration for scalable deployment",
-      },
-      {
-        name: "PostgreSQL",
-        category: "Database",
-        description: "Primary transactional database",
-      },
-      {
-        name: "Redis",
-        category: "Database",
-        description: "Caching and session management",
-      },
-      {
-        name: "React",
-        category: "Frontend",
-        description: "User interface framework",
-      },
-      {
-        name: "TypeScript",
-        category: "Frontend",
-        description: "Type-safe frontend development",
-      },
-      {
-        name: "AWS",
-        category: "Cloud",
-        description: "Cloud infrastructure (EC2, S3, RDS, EKS)",
-      },
-      {
-        name: "Docker",
-        category: "DevOps",
-        description: "Containerization for consistent deployments",
-      },
-      {
-        name: "Terraform",
-        category: "DevOps",
-        description: "Infrastructure as code",
-      },
-    ],
-
+    // Architecture
     architecture:
-      "The platform follows a microservices architecture with clear separation between data ingestion, processing, ML inference, and API layers. Services communicate via Kafka for async processing and REST APIs for synchronous requests. The ML models are deployed as containerized services that auto-scale based on load.",
+      "VMeals operates a vertically integrated system combining meal planning, preparation, and an optimized delivery network supported by a proprietary management platform that handles customer subscriptions, meal customizations, and real-time delivery tracking.",
 
     // Metrics
     metrics: [
       {
-        label: "Processing Volume",
-        value: "2M+",
-        context: "Documents processed daily",
+        label: "Daily Customers Served",
+        value: "Thousands",
+        context:
+          "Number of active meal plan subscribers receiving daily deliveries.",
       },
       {
-        label: "Accuracy Rate",
-        value: "99.9%",
-        context: "Document classification and extraction accuracy",
+        label: "Meal Plans Offered",
+        value: "10+",
+        context:
+          "Variety of meal plans catering to different nutrition and fitness goals.",
       },
       {
-        label: "Processing Time Reduction",
-        value: "85%",
-        context: "Reduction in manual processing time",
+        label: "Delivery Areas",
+        value: "All Dubai & UAE",
+        context: "Coverage of delivery network ensuring timely meal service.",
       },
       {
-        label: "Cost Savings",
-        value: "$12M",
-        context: "Annual operational cost savings",
-      },
-      {
-        label: "Uptime",
-        value: "99.95%",
-        context: "Platform availability SLA",
-      },
-      {
-        label: "Latency",
-        value: "< 500ms",
-        context: "Average response time for real-time processing",
+        label: "Customer Satisfaction",
+        value: "95%",
+        context: "Customer satisfaction rate based on feedback and reviews.",
       },
     ],
 
     // Key Results
     keyResults: [
-      "Reduced document processing time from 3 hours to 15 minutes per document",
-      "Achieved 99.9% accuracy rate, exceeding the 99% target",
-      "Processed 2.3 million documents in the first month of production",
-      "Eliminated 85% of manual review requirements",
-      "Reduced operational costs by $12M annually",
-      "Maintained 99.95% uptime with zero security incidents",
-      "Enabled real-time fraud detection with 500ms average latency",
-      "Successfully passed all regulatory audits on first attempt",
-    ],
-
-    // Timeline
-    timeline: [
-      {
-        phase: "Discovery & Planning",
-        duration: "4 weeks",
-        description:
-          "Requirements gathering, architecture design, and project planning",
-        deliverables: [
-          "Technical architecture document",
-          "Project roadmap and timeline",
-          "Risk assessment and mitigation plan",
-          "Compliance requirements documentation",
-        ],
-      },
-      {
-        phase: "Foundation & Infrastructure",
-        duration: "8 weeks",
-        description:
-          "Setting up cloud infrastructure, CI/CD pipelines, and development environments",
-        deliverables: [
-          "Kubernetes cluster setup",
-          "CI/CD pipeline implementation",
-          "Monitoring and logging infrastructure",
-          "Security framework implementation",
-        ],
-      },
-      {
-        phase: "Data Pipeline Development",
-        duration: "10 weeks",
-        description:
-          "Building ETL pipelines, data validation, and integration with legacy systems",
-        deliverables: [
-          "Kafka streaming pipeline",
-          "Data validation framework",
-          "Integration with 15+ legacy systems",
-          "Data quality monitoring dashboard",
-        ],
-      },
-      {
-        phase: "ML Model Development",
-        duration: "12 weeks",
-        description:
-          "Training, fine-tuning, and validating ML models for document processing and fraud detection",
-        deliverables: [
-          "Document classification models",
-          "Fraud detection models",
-          "Model evaluation reports",
-          "Explainability framework",
-        ],
-      },
-      {
-        phase: "Platform Development",
-        duration: "14 weeks",
-        description: "Building APIs, user interfaces, and orchestration layer",
-        deliverables: [
-          "RESTful API layer",
-          "Admin dashboard",
-          "Document review interface",
-          "Analytics and reporting tools",
-        ],
-      },
-      {
-        phase: "Testing & Validation",
-        duration: "6 weeks",
-        description:
-          "Comprehensive testing, security audits, and compliance validation",
-        deliverables: [
-          "Test coverage reports",
-          "Security audit results",
-          "Compliance validation documentation",
-          "Performance test results",
-        ],
-      },
-      {
-        phase: "Deployment & Launch",
-        duration: "4 weeks",
-        description:
-          "Production deployment, monitoring setup, and team training",
-        deliverables: [
-          "Production deployment",
-          "Monitoring dashboards",
-          "Documentation and runbooks",
-          "Team training completion",
-        ],
-      },
+      "Enabled convenient access to healthy meals, eliminating shopping and cooking hassle.",
+      "Achieved high customer satisfaction with personalized nutrition plans.",
+      "Scaled delivery network covering extensive UAE areas efficiently.",
+      "Promoted sustainable practices with eco-friendly packaging.",
     ],
 
     // Team
-    teamSize: 18,
+    teamSize: 25,
     roles: [
-      "2 Solution Architects",
-      "4 ML Engineers",
-      "3 Backend Engineers",
-      "2 Frontend Engineers",
-      "2 DevOps Engineers",
-      "2 Data Engineers",
-      "1 Security Specialist",
-      "1 Project Manager",
-      "1 QA Lead",
+      "Nutritionists",
+      "Chefs",
+      "Delivery Personnel",
+      "Customer Support",
+      "Technology Team",
+      "Operations Managers",
     ],
 
     // Testimonial
     testimonial: {
       quote:
-        "Codecrest delivered a world-class AI platform that transformed our operations. The team's expertise in both AI and financial services regulations was evident throughout the project. We've seen incredible results—85% reduction in processing time and $12M in annual savings.",
-      author: "Sarah Chen",
-      role: "Chief Technology Officer",
+        "VMeals has transformed the way I approach healthy eating. Their personalized plans and fresh meals make maintaining my fitness goals effortless.",
+      author: "Ayesha Khan",
+      role: "Wellness Enthusiast",
     },
 
     // Tags
     tags: [
-      "AI/ML",
-      "GenAI",
-      "Financial Services",
-      "Document Processing",
-      "Fraud Detection",
-      "Enterprise",
-      "Kubernetes",
-      "Real-time Processing",
+      "Healthy Meals",
+      "Meal Delivery",
+      "Nutrition",
+      "Fitness",
+      "Sustainability",
+      "Dubai",
+      "UAE",
     ],
 
     // Metadata
-    metaTitle: "Enterprise AI Platform for Financial Services | Codecrest",
+    metaTitle: "VMeals Healthy Meal Delivery Service | Fresh & Nutritious UAE",
     metaDescription:
-      "Built a production-grade GenAI platform processing 2M+ transactions daily with 99.9% accuracy for a leading financial services institution. Reduced processing time by 85% and saved $12M annually.",
+      "VMeals offers fresh, personalized, and nutrition-focused meal plans delivered daily across UAE. Designed by expert nutritionists and chefs for a healthier lifestyle.",
+  },
+  {
+    id: "dunesync-custom-software-solutions",
+    slug: "dunesync-custom-software-solutions",
+    title: "DuneSync Custom Software Development",
+    subtitle:
+      "Crafting intelligent, scalable, and future-ready software solutions for businesses",
+    category: "Software Development",
+    industry: "Information Technology",
+    status: "completed",
+    startedAt: "2023-01-01T00:00:00.000Z",
+    duration: "20 months",
+
+    // Hero Section
+    heroImage: "/dunesync-banner.png",
+    heroTitle: "Innovate. Automate. Excel.",
+    heroDescription:
+      "DuneSync delivers tailored software and digital transformation solutions that help businesses optimize operations and scale with efficiency.",
+
+    // Overview
+    overview:
+      "DuneSync specializes in custom software development, IT staff augmentation, and business automation solutions. Leveraging the latest technology trends, DuneSync provides scalable, secure, and high-performing software products tailored to unique business needs across industries such as healthcare, finance, and manufacturing.",
+
+    // Objectives
+    objectives: [
+      "Develop custom software tailored to client-specific workflows",
+      "Provide seamless integration of disparate business systems via smart API connections",
+      "Enable digital transformation for operational efficiency and scalability",
+      "Offer IT staff augmentation with pre-vetted experts for faster project delivery",
+      "Optimize business processes with automation tools and ERP solutions",
+      "Ensure high-quality software development with agile methodologies",
+    ],
+
+    // Challenges
+    challenges: [
+      {
+        title: "Unique Business Requirements",
+        description:
+          "Each business has distinct workflows and processes requiring customized software that off-the-shelf products cannot fulfill.",
+      },
+      {
+        title: "System Integration Complexity",
+        description:
+          "Integrating diverse legacy systems, CRMs, ERP, and third-party applications to work seamlessly can be complex and prone to data inconsistencies.",
+      },
+      {
+        title: "Scaling Development Teams",
+        description:
+          "Rapid scaling and access to specialized IT talent on demand requires efficient staff augmentation without disrupting ongoing projects.",
+      },
+      {
+        title: "Maintaining Security and Quality",
+        description:
+          "Ensuring software security, performance, and compliance across industries while delivering on tight deadlines is critical.",
+      },
+    ],
+
+    // Solutions
+    solutions: [
+      {
+        title: "Custom Software Development",
+        description:
+          "Building bespoke software solutions tailored to client-specific needs with scalable architectures and modern tech stacks.",
+        image:
+          "https://images.unsplash.com/photo-1605379399642-870262d3d051?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c29mdHdhcmUlMjBkZXZlbG9wbWVudHxlbnwwfHwwfHx8MA%3D%3D",
+      },
+      {
+        title: "API Integration",
+        description:
+          "Implementing smart API integrations to unify business systems, reducing manual work and improving productivity.",
+        image:
+          "https://images.unsplash.com/photo-1760952851538-17a59f691efe?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+      {
+        title: "IT Staff Augmentation",
+        description:
+          "Providing rapid access to pre-vetted IT professionals to extend client teams, ensuring timely project completion and skill flexibility.",
+        image:
+          "https://images.unsplash.com/photo-1668713701571-1d1cbcefe7bd?q=80&w=1592&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+      {
+        title: "ERP and Automation Solutions",
+        description:
+          "Delivering tailored ERP implementations and automation tools to streamline resource management and operational efficiency.",
+        image:
+          "https://images.unsplash.com/photo-1580983559367-0dc2f8934365?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+    ],
+
+    // Images
+    images: [
+      {
+        url: "/dunesync-banner.png",
+        alt: "DuneSync software development",
+        caption: "Innovative and scalable custom software solutions",
+        type: "hero",
+      },
+      {
+        url: "/dunesync-banner.png",
+        alt: "Custom software development process",
+        caption: "Tailored software development to unique client needs",
+        type: "screenshot",
+      },
+      {
+        url: "/dunesync-banner.png",
+        alt: "API integration concept",
+        caption: "Seamless integration of business systems",
+        type: "diagram",
+      },
+      {
+        url: "/dunesync-banner.png",
+        alt: "IT staff augmentation",
+        caption: "Access to expert developers to scale teams instantly",
+        type: "screenshot",
+      },
+      {
+        url: "/dunesync-banner.png",
+        alt: "ERP and business automation",
+        caption: "Efficient resource management and workflow automation",
+        type: "screenshot",
+      },
+    ],
+
+    architecture:
+      "DuneSync employs a modular microservices architecture enabling scalable, maintainable systems with robust API integrations and containerized deployment pipelines for high availability and performance.",
+
+    // Metrics
+    metrics: [
+      {
+        label: "Clients Served",
+        value: "50+",
+        context:
+          "Businesses across multiple industries served with custom software solutions.",
+      },
+      {
+        label: "Projects Delivered",
+        value: "100+",
+        context: "Successful software and automation project completions.",
+      },
+      {
+        label: "IT Experts Available",
+        value: "100+",
+        context:
+          "Pre-vetted IT professionals available for staff augmentation.",
+      },
+      {
+        label: "Customer Satisfaction",
+        value: "95%",
+        context:
+          "Average client satisfaction rating based on feedback and reviews.",
+      },
+    ],
+
+    // Key Results
+    keyResults: [
+      "Enabled unique, scalable software solutions tailored to client workflows.",
+      "Reduced manual processes with smart API integrations.",
+      "Accelerated project timelines with on-demand expert teams.",
+      "Improved business efficiency with ERP and automation implementations.",
+    ],
+
+    // Team
+    teamSize: 40,
+    roles: [
+      "Software Developers",
+      "UI/UX Designers",
+      "DevOps Engineers",
+      "Project Managers",
+      "Quality Assurance Specialists",
+      "Business Analysts",
+      "IT Consultants",
+    ],
+
+    // Testimonial
+    testimonial: {
+      quote:
+        "DuneSync transformed our software capabilities with their expert team and tailored solutions. Their professionalism and innovative approach helped us achieve our digital transformation goals faster than we expected.",
+      author: "James Williams",
+      role: "CTO, Healthcare Solutions Inc.",
+    },
+
+    // Tags
+    tags: [
+      "Custom Software Development",
+      "API Integration",
+      "IT Staff Augmentation",
+      "ERP Solutions",
+      "Business Automation",
+      "Cloud",
+      "DevOps",
+    ],
+
+    // Metadata
+    metaTitle: "DuneSync Custom Software Development & IT Solutions",
+    metaDescription:
+      "DuneSync provides innovative custom software development, API integrations, staff augmentation, and automation solutions to help businesses transform and scale efficiently.",
+  },
+  {
+    id: "redas-real-estate-association-singapore",
+    slug: "redas-real-estate-association-singapore",
+    title: "Real Estate Developers' Association of Singapore (REDAS)",
+    subtitle:
+      "Advancing the real estate industry through advocacy, education, and industry engagement",
+    category: "Industry Association",
+    industry: "Real Estate",
+    status: "completed",
+    startedAt: "2023-01-01T00:00:00.000Z",
+    duration: "22 months",
+
+    // Hero Section
+    heroImage: "/redas-banner-1.png",
+    heroTitle:
+      "Driving Growth and Innovation in Singapore’s Real Estate Sector",
+    heroDescription:
+      "REDAS is Singapore's leading real estate developers' association providing regulatory updates, industry insights, training programmes, and engagement platforms to support sustainable and innovative development.",
+
+    // Overview
+    overview:
+      "REDAS actively represents the interests of the real estate development community in Singapore. It provides timely circulars and regulatory updates, hosts seminars and engagement sessions on critical industry topics such as AI, fire safety, and green technology, and supports members with professional development initiatives and market outlooks.",
+
+    // Objectives
+    objectives: [
+      "Provide authoritative industry advocacy and represent developer interests",
+      "Disseminate regulatory updates and circulars relevant to real estate and building sectors",
+      "Organize educational workshops, seminars, and engagement sessions on emerging industry challenges and innovations",
+      "Facilitate networking and knowledge sharing among industry professionals",
+      "Promote sustainable development initiatives including green technology and smart buildings",
+      "Support regulatory compliance and industry best practices",
+    ],
+
+    // Challenges
+    challenges: [
+      {
+        title: "Keeping Pace with Regulatory Changes",
+        description:
+          "The real estate industry in Singapore faces frequent updates in regulations on fire safety, building control, and environmental standards requiring constant monitoring and communication.",
+      },
+      {
+        title: "Industry Education on Emerging Technologies",
+        description:
+          "Educating members on the implications and opportunities presented by AI, smart building tech, and EV infrastructure.",
+      },
+      {
+        title: "Facilitating Collaboration Amid Diverse Stakeholders",
+        description:
+          "Bringing together developers, government agencies, and service providers to align on sector growth strategies and regulatory compliance.",
+      },
+    ],
+
+    // Solutions
+    solutions: [
+      {
+        title: "Comprehensive Regulatory Circulars",
+        description:
+          "Regular publication and dissemination of circulars on building control, fire precautions, gas installation standards, and anti-money laundering requirements.",
+        image:
+          "https://images.unsplash.com/photo-1657233979858-70176bccde18?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+      {
+        title: "Industry Engagement Sessions",
+        description:
+          "Organizing topical seminars and workshops such as AI in Real Estate, Fire Safety of Electric Vehicles, and Smart Building Development with Green Tech.",
+        image:
+          "https://images.unsplash.com/photo-1560439514-0fc9d2cd5e1b?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+      {
+        title: "Market Outlook Reports",
+        description:
+          "Providing timely market insights and outlooks helping developers plan and adapt to changing market conditions.",
+        image:
+          "https://images.unsplash.com/photo-1618044733300-9472054094ee?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+      {
+        title: "Professional Development Programmes",
+        description:
+          "Offering training and leadership forums to build industry capacity and leadership skills.",
+        image:
+          "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=1738&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+    ],
+
+    // Images
+    images: [
+      {
+        url: "/redas-banner-1.png",
+        alt: "REDAS Industry Advocacy",
+        caption:
+          "Empowering real estate developers through advocacy and education",
+        type: "hero",
+      },
+      {
+        url: "/redas-banner-1.png",
+        alt: "Regulatory circulars",
+        caption: "Publishing key regulatory updates for the industry",
+        type: "screenshot",
+      },
+      {
+        url: "/redas-banner-1.png",
+        alt: "Industry seminars and workshops",
+        caption:
+          "Engaging sessions focused on real estate innovations and compliance",
+        type: "screenshot",
+      },
+      {
+        url: "/redas-banner-1.png",
+        alt: "Market outlook report",
+        caption: "Analysis and forecasts to aid strategic planning",
+        type: "screenshot",
+      },
+      {
+        url: "/redas-banner-1.png",
+        alt: "Professional development",
+        caption:
+          "Training and leadership programmes for industry professionals",
+        type: "screenshot",
+      },
+    ],
+
+    architecture:
+      "REDAS website and member platform operates on a CMS-based architecture with integrated communication and event management tools to facilitate timely dissemination of industry knowledge and member engagement.",
+
+    // Metrics
+    metrics: [
+      {
+        label: "Industry Circulars Published",
+        value: "10+",
+        context: "Up-to-date regulatory and best practice circulars annually",
+      },
+      {
+        label: "Engagement Sessions",
+        value: "20+",
+        context:
+          "Seminars and workshops held for member education in past year",
+      },
+      {
+        label: "Member Organisations",
+        value: "100+",
+        context: "Real estate developers and related stakeholders represented",
+      },
+      {
+        label: "Event Attendance",
+        value: "1000+",
+        context:
+          "Participants in seminars, forums, and training programmes annually",
+      },
+    ],
+
+    // Key Results
+    keyResults: [
+      "Maintained industry compliance with regulatory changes through timely updates",
+      "Enhanced industry knowledge around AI, smart buildings, and sustainability",
+      "Facilitated collaboration among developers, regulators, and service providers",
+      "Supported professional growth via leadership and training forums",
+    ],
+
+    // Team
+    teamSize: 15,
+    roles: [
+      "Industry Advocates",
+      "Regulatory Experts",
+      "Event Coordinators",
+      "Communications Specialists",
+      "Training Facilitators",
+    ],
+
+    // Testimonial
+    testimonial: {
+      quote:
+        "REDAS is instrumental in keeping our community informed and prepared amidst evolving regulations and technology trends. Their engagement sessions and updates have been invaluable to our operations.",
+      author: "Michael Lee",
+      role: "Senior Developer, Singapore Property Group",
+    },
+
+    // Tags
+    tags: [
+      "Real Estate",
+      "Industry Association",
+      "Regulatory Compliance",
+      "Education",
+      "Seminars",
+      "Sustainability",
+      "Singapore",
+    ],
+
+    // Metadata
+    metaTitle:
+      "REDAS - Real Estate Developers' Association of Singapore | Industry Advocacy & Education",
+    metaDescription:
+      "REDAS advocates for Singapore’s real estate industry by providing regulatory updates, seminars, and professional development for sustainable and innovative sector growth.",
+  },
+  {
+    id: "vstinc-digital-transformation-automation",
+    slug: "vstinc-digital-transformation-automation",
+    title: "VST Inc. Digital Transformation & Business Automation",
+    subtitle:
+      "Empowering businesses with innovative technology solutions for automation, strategy, and growth",
+    category: "Digital Transformation",
+    industry: "Information Technology",
+    status: "completed",
+    startedAt: "2023-03-01T00:00:00.000Z",
+    duration: "18 months",
+
+    // Hero Section
+    heroImage: "/vstinc-banner.png",
+    heroTitle: "Revolutionizing Business Through Technology",
+    heroDescription:
+      "VST Inc. partners with enterprises to implement cutting-edge business process automation, digital marketing, IT strategy, and cloud solutions to accelerate growth and efficiency.",
+
+    // Overview
+    overview:
+      "VST Inc. delivers world-class digital transformation services focused on automating business processes, enhancing marketing effectiveness, ensuring IT and cybersecurity compliance, and enabling cloud adoption. Their solutions help businesses optimize operations, expand revenue channels, and stay competitive in a rapidly evolving digital landscape.",
+
+    // Objectives
+    objectives: [
+      "Implement robust business process automation solutions",
+      "Enhance brand visibility and customer engagement through digital media marketing",
+      "Provide strategic consulting for business and IT alignment",
+      "Develop and deploy e-commerce platforms to optimize revenue generation",
+      "Design and develop next-generation applications",
+      "Deliver managed IT services tailored to enterprise needs",
+      "Ensure cybersecurity compliance with major regulatory standards",
+      "Support cloud migration and adoption for scalable infrastructure",
+    ],
+
+    // Challenges
+    challenges: [
+      {
+        title: "Complex Business Processes",
+        description:
+          "Enterprises require tailored automation strategies that align with complex, multi-departmental workflows.",
+      },
+      {
+        title: "Digital Marketing Saturation",
+        description:
+          "Standing out and achieving ROI in competitive digital marketing landscapes demands innovative strategies and technology.",
+      },
+      {
+        title: "Security and Compliance",
+        description:
+          "Adapting to evolving cybersecurity threats and regulatory mandates requires continuous vigilance and expertise.",
+      },
+      {
+        title: "Cloud Migration Risks",
+        description:
+          "Transitioning legacy infrastructure to cloud-native environments involves technical, operational, and cultural challenges.",
+      },
+    ],
+
+    // Solutions
+    solutions: [
+      {
+        title: "Business Process Automation",
+        description:
+          "Deploying scalable automation solutions that streamline operations and reduce manual effort across business units.",
+        image:
+          "https://images.unsplash.com/photo-1759752393975-7ca7b302fcc6?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+      {
+        title: "Digital Media Marketing",
+        description:
+          "Leveraging award-winning marketing technologies to boost brand awareness and customer engagement.",
+        image:
+          "https://images.unsplash.com/photo-1621763542503-f8496eb0ac25?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+      {
+        title: "IT Strategy Consulting",
+        description:
+          "Providing insights and roadmaps to align IT investments with business goals and innovation objectives.",
+        image:
+          "https://images.unsplash.com/photo-1762968274962-20c12e6e8ecd?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+      {
+        title: "Cloud Consulting & Migration",
+        description:
+          "Offering expert guidance and implementation support for successful cloud adoption and modernization.",
+        image:
+          "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2068&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+    ],
+
+    // Images
+    images: [
+      {
+        url: "/vstinc-banner.png",
+        alt: "VST Inc. Digital Transformation",
+        caption: "Driving enterprise growth through technology innovation",
+        type: "hero",
+      },
+      {
+        url: "/vstinc-banner.png",
+        alt: "Business process automation",
+        caption: "Automating complex enterprise workflows",
+        type: "screenshot",
+      },
+      {
+        url: "/vstinc-banner.png",
+        alt: "Digital media marketing",
+        caption: "Strategic marketing to enhance brand reach",
+        type: "screenshot",
+      },
+      {
+        url: "/vstinc-banner.png",
+        alt: "IT strategy consulting",
+        caption: "Aligning IT with business goals",
+        type: "screenshot",
+      },
+      {
+        url: "/vstinc-banner.png",
+        alt: "Cloud consulting and migration",
+        caption: "Seamless transition to cloud infrastructure",
+        type: "screenshot",
+      },
+    ],
+
+    architecture:
+      "VST Inc. combines automation tools, cloud platforms, and advanced marketing tech under an agile development framework to provide end-to-end digital transformation solutions tailored for enterprise scalability and compliance.",
+
+    // Metrics
+    metrics: [
+      {
+        label: "Clients Served",
+        value: "100+",
+        context:
+          "Enterprises benefited from VST’s digital transformation solutions.",
+      },
+      {
+        label: "Automated Processes",
+        value: "500+",
+        context:
+          "Business processes automated improving efficiency and accuracy.",
+      },
+      {
+        label: "Successful Cloud Migrations",
+        value: "50+",
+        context:
+          "Enterprises modernized their infrastructure with cloud solutions.",
+      },
+      {
+        label: "Compliance Certifications",
+        value: "10+",
+        context:
+          "Regulatory and security certifications maintained and implemented.",
+      },
+    ],
+
+    // Key Results
+    keyResults: [
+      "Streamlined enterprise operations through business process automation.",
+      "Increased brand awareness and customer engagement via digital marketing.",
+      "Helped enterprises successfully migrate to scalable cloud infrastructures.",
+      "Maintained high levels of cybersecurity and regulatory compliance.",
+    ],
+
+    // Team
+    teamSize: 60,
+    roles: [
+      "Business Automation Specialists",
+      "Digital Marketing Experts",
+      "IT Strategists",
+      "Cloud Architects",
+      "Cybersecurity Professionals",
+      "Project Managers",
+    ],
+
+    // Testimonial
+    testimonial: {
+      quote:
+        "VST Inc. has been a pivotal partner in our digital journey, delivering robust automation and cloud solutions that have transformed our operations and accelerated our growth.",
+      author: "Linda Roberts",
+      role: "Chief Information Officer",
+    },
+
+    // Tags
+    tags: [
+      "Digital Transformation",
+      "Business Automation",
+      "Cloud Migration",
+      "Cybersecurity",
+      "Digital Marketing",
+      "IT Strategy",
+    ],
+
+    // Metadata
+    metaTitle:
+      "VST Inc. Digital Transformation & Business Automation Solutions",
+    metaDescription:
+      "VST Inc. empowers enterprises with automation, digital marketing, IT strategy, cloud migration, and cybersecurity solutions to drive innovation and growth.",
+  },
+  {
+    id: "member-solutions-studio-management-software",
+    slug: "member-solutions-studio-management-software",
+    title: "Member Solutions Membership Management Software",
+    subtitle:
+      "Simplifying studio management and growing memberships for martial arts schools, fitness studios, and gyms",
+    category: "Software as a Service",
+    industry: "Fitness & Wellness",
+    status: "completed",
+    startedAt: "1991-01-01T00:00:00.000Z",
+    duration: "Ongoing",
+
+    // Hero Section
+    heroImage: "/membersolution-banner.png",
+    heroTitle: "Streamline Studio Operations, Grow Your Membership",
+    heroDescription:
+      "Member Solutions automates billing, scheduling, and lead follow-up so studios can focus on training and member engagement, trusted by 7,000+ studios worldwide.",
+
+    // Overview
+    overview:
+      "Member Solutions provides an all-in-one platform designed specifically for martial arts schools, fitness studios, and gyms. The software automates critical business processes like class scheduling, membership billing, achievement tracking, and lead management, enabling studios to run efficiently and scale smoothly.",
+
+    // Objectives
+    objectives: [
+      "Automate membership billing and renewals",
+      "Simplify class scheduling and attendance tracking",
+      "Enhance customer engagement with lead follow-up automation",
+      "Provide members with easy self-service access via a member portal",
+      "Support sales of gear and apparel through integrated e-commerce",
+      "Increase member retention through streamlined operations",
+    ],
+
+    // Challenges
+    challenges: [
+      {
+        title: "Manual and Time-Consuming Studio Management",
+        description:
+          "Studios struggled with managing billing, scheduling, and member follow-ups manually leading to inefficiencies.",
+      },
+      {
+        title: "Member Engagement and Retention",
+        description:
+          "Ensuring consistent communication and engagement with members required automation to reduce churn.",
+      },
+      {
+        title: "Scalability for Growing Studios",
+        description:
+          "Providing scalable software that supports multiple locations and a growing membership base.",
+      },
+    ],
+
+    // Solutions
+    solutions: [
+      {
+        title: "Automated Billing and Payment Processing",
+        description:
+          "Seamlessly manage membership billing, renewals, and payments through a PCI-compliant payment processing platform.",
+        image:
+          "https://images.unsplash.com/photo-1577846351790-23f1176811a7?q=80&w=1818&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+      {
+        title: "Comprehensive Scheduling and Attendance",
+        description:
+          "Easily schedule classes, manage attendance, and track member achievements within a single platform.",
+        image:
+          "https://images.unsplash.com/photo-1546263463-02ec45e884fd?q=80&w=1532&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+      {
+        title: "Lead Management and Marketing Automation",
+        description:
+          "Automate lead follow-ups and marketing campaigns to convert prospects and retain members effectively.",
+        image:
+          "https://images.unsplash.com/photo-1758691736508-a85d1f7d5a77?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+      {
+        title: "Member Self-Service Portal",
+        description:
+          "Empower members to manage accounts, book classes, make payments, and shop for gear anytime, anywhere.",
+        image:
+          "https://images.unsplash.com/photo-1762330474636-637ce87b268b?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+    ],
+
+    // Images
+    images: [
+      {
+        url: "/membersolution-banner.png",
+        alt: "Studio management software interface",
+        caption: "Streamlined studio management with Member Solutions",
+        type: "hero",
+      },
+      {
+        url: "/membersolution-banner.png",
+        alt: "Automated billing and payments",
+        caption: "Simplify billing and renewals with automation",
+        type: "screenshot",
+      },
+      {
+        url: "/membersolution-banner.png",
+        alt: "Class scheduling system",
+        caption: "Manage class schedules and attendance easily",
+        type: "screenshot",
+      },
+      {
+        url: "/membersolution-banner.png",
+        alt: "Lead management dashboard",
+        caption: "Automate lead follow-ups to grow membership",
+        type: "screenshot",
+      },
+      {
+        url: "/membersolution-banner.png",
+        alt: "Member self-service portal",
+        caption: "Give members convenient online account access",
+        type: "screenshot",
+      },
+    ],
+
+    architecture:
+      "Member Solutions operates a cloud-based SaaS platform combining billing, scheduling, and member management with integrated marketing automation and e-commerce features.",
+
+    // Metrics
+    metrics: [
+      {
+        label: "Studios Served",
+        value: "7,000+",
+        context:
+          "Martial arts schools, gyms, and fitness studios globally trusted Member Solutions.",
+      },
+      {
+        label: "Automated Billing Transactions",
+        value: "Millions",
+        context: "Handled securely via the proprietary payment platform.",
+      },
+      {
+        label: "Member Retention Improvement",
+        value: "Significant",
+        context:
+          "Achieved through automation of engagement and billing processes.",
+      },
+    ],
+
+    // Key Results
+    keyResults: [
+      "Reduced administrative burden enabling staff to focus on training and member experience.",
+      "Increased membership renewals through automated billing and follow-up.",
+      "Scaled with studios as they grow, supporting multi-location management.",
+      "Enabled members with self-service tools increasing satisfaction and convenience.",
+    ],
+
+    // Team
+    teamSize: 51,
+    roles: [
+      "Software Developers",
+      "Support Specialists",
+      "Marketing Automation Experts",
+      "Payment Processing Engineers",
+      "Customer Success Managers",
+    ],
+
+    // Testimonial
+    testimonial: {
+      quote:
+        "Member Solutions transformed how we manage our studio. Automation of billing and scheduling freed us to focus on our students and grow our business.",
+      author: "Sarah Thompson",
+      role: "Studio Owner",
+    },
+
+    // Tags
+    tags: [
+      "Membership Management",
+      "Fitness Software",
+      "Billing Automation",
+      "Scheduling",
+      "Lead Follow-up",
+      "SaaS",
+    ],
+
+    // Metadata
+    metaTitle: "Member Solutions - Membership Management Software for Studios",
+    metaDescription:
+      "Member Solutions offers automated billing, scheduling, and lead follow-up software trusted by over 7,000 studios to simplify fitness and martial arts school management.",
   },
 ];
 

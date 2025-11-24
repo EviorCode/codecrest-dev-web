@@ -87,13 +87,13 @@ export default function MegaMenu({
               {/* Enhanced CTA Card */}
               <Link
                 href="/contact"
-                className="mt-6 block p-4 bg-linear-to-r from-blue-500 via-indigo-500 to-purple-500 border border-slate-200/60 hover:border-blue-200 transition-colors duration-200 group rounded-lg"
+                className="mt-6 block p-4  bg-purple-600 border border-slate-200/60 hover:border-purple-200 transition-colors duration-200 group rounded-lg"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 group-hover:bg-blue-200 transition-colors duration-200">
                       <svg
-                        className="w-4 h-4 text-blue-600"
+                        className="w-4 h-4 text-purple-600"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -194,29 +194,31 @@ export default function MegaMenu({
                     </p>
                   )}
 
-                  {footerLink && hasLinks && idx === lastColumnWithLinksIndex && (
-                    <div className="pt-4 mt-4 border-t border-slate-500/60">
-                      <Link
-                        href={footerLink.href}
-                        className="group flex items-center gap-2 text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors duration-200"
-                      >
-                        <span>{footerLink.label}</span>
-                        <svg
-                          className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
+                  {footerLink &&
+                    hasLinks &&
+                    idx === lastColumnWithLinksIndex && (
+                      <div className="pt-4 mt-4 border-t border-slate-500/60">
+                        <Link
+                          href={footerLink.href}
+                          className="group flex items-center gap-2 text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors duration-200"
                         >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                          />
-                        </svg>
-                      </Link>
-                    </div>
-                  )}
+                          <span>{footerLink.label}</span>
+                          <svg
+                            className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M17 8l4 4m0 0l-4 4m4-4H3"
+                            />
+                          </svg>
+                        </Link>
+                      </div>
+                    )}
                 </div>
               );
             })}
@@ -224,7 +226,7 @@ export default function MegaMenu({
         </div>
 
         {/* Bottom Accent Bar */}
-        <div className="h-1 bg-linear-to-r from-blue-400 via-indigo-400 to-purple-400"></div>
+        <div className="h-1 bg-purple-600/80"></div>
       </div>
     </div>
   );

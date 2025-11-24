@@ -95,11 +95,7 @@ export default function Navigation() {
               {/* CTA Button */}
               <Link
                 href="/contact"
-                className={`hidden md:inline-flex items-center justify-center px-5 h-10 text-sm font-semibold rounded-lg transition-all duration-200 ${
-                  isScrolled
-                    ? "text-white bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600"
-                    : "text-white bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600"
-                }`}
+                className={`hidden md:inline-flex items-center justify-center px-5 h-10 text-sm font-semibold rounded-lg transition-all duration-200 ${"text-white bg-purple-600"}`}
               >
                 Contact
               </Link>

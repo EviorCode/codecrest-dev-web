@@ -124,9 +124,7 @@ export default function TabMenu({
                   <motion.div
                     layoutId="active"
                     className={`absolute bottom-0 left-0 right-0 w-full h-[2px] ${
-                      isScrolled
-                        ? "bg-linear-to-r from-blue-400 via-indigo-400 to-purple-400"
-                        : "bg-white"
+                      isScrolled ? "bg-purple-600" : "bg-white"
                     }`}
                     style={{ zIndex: 20 }}
                     transition={{

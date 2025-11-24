@@ -1,6 +1,13 @@
 "use client";
+import Image from "next/image";
+import Link from "next/link";
 import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
+
+import {
+  getFeaturedProjects,
+  type ProjectDetail,
+} from "../../data/project.data";
 
 export default function HorizontalScrollCarousel() {
   const targetRef = useRef(null);
@@ -9,86 +16,60 @@ export default function HorizontalScrollCarousel() {
   });
 
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
+  const projects = useMemo(() => getFeaturedProjects(7), []);
 
   return (
     <section ref={targetRef} className="relative h-[300vh] bg-white">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-5 sm:gap-6 px-6 sm:px-8">
-          {cards.map((card) => {
-            return <Card card={card} key={card.id} />;
-          })}
+        <motion.div style={{ x }} className="flex gap-5 px-6 sm:gap-6 sm:px-8">
+          {projects.map((project, index) => (
+            <ProjectCard
+              project={project}
+              key={project.id}
+              isPriority={index === 0}
+            />
+          ))}
         </motion.div>
       </div>
     </section>
   );
 }
 
-const Card = ({
-  card,
+const ProjectCard = ({
+  project,
+  isPriority,
 }: {
-  card: { id: number; title: string; url: string };
+  project: ProjectDetail;
+  isPriority: boolean;
 }) => {
   return (
-    <div
-      key={card.id}
-      className="group relative h-[500px] w-[420px] sm:h-[600px] sm:w-[700px] md:h-[700px] md:w-[800px] lg:h-[800px] lg:w-[900px] overflow-hidden bg-neutral-800 transition-all duration-300 hover:bg-neutral-750"
+    <Link
+      href={`/projects/${project.slug}`}
+      className="group relative h-[500px] w-[420px] overflow-hidden bg-neutral-900 sm:h-[600px] sm:w-[700px] md:h-[700px] md:w-[800px] lg:h-[800px] lg:w-[900px]"
     >
-      <div
-        style={{
-          backgroundImage: `url(${card.url})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-        className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-105 opacity-40"
-      ></div>
-      {/* <div className="absolute inset-0 z-0 bg-linear-to-t from-neutral-900 via-neutral-900/70 to-transparent" /> */}
-
-      <div className="absolute inset-0 z-10 flex flex-col justify-end p-6 sm:p-8 md:p-10 lg:p-12">
-        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight mb-3 sm:mb-4">
-          {card.title}
-        </h3>
-        <div className="w-12 sm:w-16 md:w-20 h-0.5 bg-white transition-all duration-300 group-hover:w-24 sm:group-hover:w-32 md:group-hover:w-40"></div>
+      <div className="absolute inset-0">
+        <Image
+          src={project.heroImage}
+          alt={project.heroTitle}
+          fill
+          sizes="(max-width: 1024px) 90vw, 900px"
+          className="object-cover transition duration-500 group-hover:scale-105"
+          priority={isPriority}
+        />
+        <div className="absolute inset-0 bg-neutral-950/60 transition duration-300 group-hover:bg-neutral-950/40" />
       </div>
 
-      <div className="absolute inset-0 z-20 border border-transparent group-hover:border-white/10 transition-colors duration-300 pointer-events-none"></div>
-    </div>
+      <div className="relative z-10 flex h-full flex-col justify-end p-6 sm:p-8 md:p-10 lg:p-12">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
+          {project.category}
+        </p>
+        <h3 className="mb-4 mt-4 text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+          {project.title}
+        </h3>
+        <div className="h-0.5 w-12 bg-white transition-all duration-300 group-hover:w-24 sm:w-16 sm:group-hover:w-32 md:w-20 md:group-hover:w-40" />
+      </div>
+
+      <div className="pointer-events-none absolute inset-0 border border-white/5 transition group-hover:border-white/15" />
+    </Link>
   );
 };
-
-const cards = [
-  {
-    id: 1,
-    title: "E-Commerce Platform",
-    url: "https://images.unsplash.com/photo-1642052503083-bc49dd433478?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
-  },
-  {
-    id: 2,
-    title: "Mobile Banking App",
-    url: "https://images.unsplash.com/photo-1616077168712-fc6c788db4af?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1171",
-  },
-  {
-    id: 3,
-    title: "SaaS Dashboard",
-    url: "https://images.unsplash.com/photo-1588511986632-592db3d6c81f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
-  },
-  {
-    id: 4,
-    title: "Healthcare Portal",
-    url: "https://images.unsplash.com/photo-1642054220431-649c53b0d3de?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
-  },
-  {
-    id: 5,
-    title: "FinTech Solution",
-    url: "https://images.unsplash.com/photo-1726607424599-db0c41681494?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
-  },
-  {
-    id: 6,
-    title: "Design System",
-    url: "https://images.unsplash.com/photo-1586780807983-950860a50ece?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
-  },
-  {
-    id: 7,
-    title: "Cloud Infrastructure",
-    url: "https://images.unsplash.com/photo-1759752394755-1241472b589d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
-  },
-];

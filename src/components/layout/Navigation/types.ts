@@ -8,6 +8,7 @@ export interface TabItem {
 export interface MegaMenuLink {
   label: string;
   href: string;
+  description?: string;
 }
 
 export interface MegaMenuColumn {

@@ -11,11 +11,13 @@ type Slide = {
 
 const slides: Slide[] = [
   {
-    video: "/background-video-2.mp4",
+    video:
+      "https://pub-20f982007aa54df4849bcd969b89a1bf.r2.dev/background-video-2.mp4",
     text: ["BUILDING TOMORROW", "TODAY"],
   },
   {
-    video: "/background-video-3.mp4",
+    video:
+      "https://pub-20f982007aa54df4849bcd969b89a1bf.r2.dev/background-video-3.mp4",
     text: ["CODE MEETS", "CREATIVITY"],
   },
   {
@@ -197,15 +199,15 @@ export default function Slideshow() {
           >
             <div
               style={{
-                fontFamily: 'Arial Black, Arial, sans-serif',
-                fontSize: 'clamp(4rem, 15vw, 12rem)',
-                fontWeight: '900',
-                color: 'white',
-                textAlign: 'center',
+                fontFamily: "Arial Black, Arial, sans-serif",
+                fontSize: "clamp(4rem, 15vw, 12rem)",
+                fontWeight: "900",
+                color: "white",
+                textAlign: "center",
                 lineHeight: 0.8,
-                letterSpacing: '-0.02em',
-                textShadow: '0 0 50px rgba(255, 255, 255, 0.3)',
-                filter: 'contrast(1.2)',
+                letterSpacing: "-0.02em",
+                textShadow: "0 0 50px rgba(255, 255, 255, 0.3)",
+                filter: "contrast(1.2)",
               }}
             >
               {slide.text[0] || "BUILDING TOMORROW"}
@@ -221,18 +223,18 @@ export default function Slideshow() {
           >
             <div
               style={{
-                fontFamily: 'Arial, sans-serif',
-                fontSize: '11px',
-                color: 'white',
+                fontFamily: "Arial, sans-serif",
+                fontSize: "11px",
+                color: "white",
                 lineHeight: 1.4,
-                letterSpacing: '0.5px',
-                textTransform: 'uppercase',
+                letterSpacing: "0.5px",
+                textTransform: "uppercase",
                 opacity: 0.8,
-                maxWidth: '150px',
+                maxWidth: "150px",
               }}
             >
               {slide.text[1] ? (
-                slide.text[1].split(' ').map((word, i, arr) => (
+                slide.text[1].split(" ").map((word, i, arr) => (
                   <React.Fragment key={i}>
                     {word}
                     {i < arr.length - 1 && <br />}
@@ -240,8 +242,10 @@ export default function Slideshow() {
                 ))
               ) : (
                 <>
-                  In the dark<br />
-                  is where<br />
+                  In the dark
+                  <br />
+                  is where
+                  <br />
                   light takes form
                 </>
               )}
@@ -257,19 +261,19 @@ export default function Slideshow() {
           >
             <div
               style={{
-                fontFamily: 'Arial, sans-serif',
-                fontSize: '11px',
-                color: 'white',
+                fontFamily: "Arial, sans-serif",
+                fontSize: "11px",
+                color: "white",
                 lineHeight: 1.4,
-                letterSpacing: '0.5px',
-                textTransform: 'uppercase',
+                letterSpacing: "0.5px",
+                textTransform: "uppercase",
                 opacity: 0.8,
-                maxWidth: '150px',
-                textAlign: 'right',
+                maxWidth: "150px",
+                textAlign: "right",
               }}
             >
               {slide.text[2] ? (
-                slide.text[2].split(' ').map((word, i, arr) => (
+                slide.text[2].split(" ").map((word, i, arr) => (
                   <React.Fragment key={i}>
                     {word}
                     {i < arr.length - 1 && <br />}
@@ -277,8 +281,10 @@ export default function Slideshow() {
                 ))
               ) : (
                 <>
-                  In emptiness<br />
-                  we find<br />
+                  In emptiness
+                  <br />
+                  we find
+                  <br />
                   true happiness
                 </>
               )}
@@ -294,11 +300,11 @@ export default function Slideshow() {
           >
             <div
               style={{
-                fontFamily: 'Arial, sans-serif',
-                fontSize: '10px',
-                color: 'white',
-                letterSpacing: '1px',
-                textTransform: 'uppercase',
+                fontFamily: "Arial, sans-serif",
+                fontSize: "10px",
+                color: "white",
+                letterSpacing: "1px",
+                textTransform: "uppercase",
                 opacity: 0.7,
               }}
             >
