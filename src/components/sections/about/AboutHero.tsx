@@ -4,13 +4,6 @@ import { useEffect, useId } from "react";
 import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 
-const heroMetrics = [
-  { metric: "45%", label: "avg. cycle time reduction" },
-  { metric: "18", label: "markets supported" },
-  { metric: "92%", label: "executive NPS" },
-  { metric: "24/7", label: "global delivery coverage" },
-];
-
 export default function AboutHero() {
   const textControls = useAnimation();
   const titleId = useId();
@@ -41,7 +34,7 @@ export default function AboutHero() {
       <div className="pointer-events-none absolute inset-0">
         <video
           className="h-full w-full object-cover opacity-40"
-          src="/background-video-2.mp4"
+          src="https://pub-20f982007aa54df4849bcd969b89a1bf.r2.dev/background-video-3.mp4"
           autoPlay
           loop
           muted

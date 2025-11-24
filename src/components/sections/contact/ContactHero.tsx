@@ -164,13 +164,13 @@ export default function ContactHero() {
       <div className="pointer-events-none absolute inset-0">
         <video
           className="video-background"
-          src="/background-video-2.mp4"
+          src="https://pub-20f982007aa54df4849bcd969b89a1bf.r2.dev/background-video-3.mp4"
           autoPlay
           loop
           muted
           playsInline
         />
-        <div className="video-overlay" />
+        {/* <div className="video-overlay" /> */}
       </div>
 
       {/* Header */}

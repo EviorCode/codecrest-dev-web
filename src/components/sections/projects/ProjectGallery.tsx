@@ -3,13 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import VerticalCutReveal from "../../ui/vertical-cut-reveal";
-
-interface ProjectImage {
-  url: string;
-  alt: string;
-  caption?: string;
-  type: "screenshot" | "diagram";
-}
+import type { ProjectImage } from "@/src/data/project.data";
 
 interface ProjectGalleryProps {
   images: ProjectImage[];

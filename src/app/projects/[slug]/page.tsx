@@ -1,11 +1,16 @@
 import { notFound } from "next/navigation";
-import { getProjectBySlug } from "@/src/data/project.data";
+import {
+  getProjectBySlug,
+  type ProjectDetail,
+  type ProjectTechnology,
+  type ProjectTimeline,
+} from "@/src/data/project.data";
 import ProjectHero from "@/src/components/sections/projects/ProjectHero";
 import ProjectOverview from "@/src/components/sections/projects/ProjectOverview";
 import ProjectChallenges from "@/src/components/sections/projects/ProjectChallenges";
 import ProjectSolutions from "@/src/components/sections/projects/ProjectSolutions";
 import ProjectMetrics from "@/src/components/sections/projects/ProjectMetrics";
-import ProjectTimeline from "@/src/components/sections/projects/ProjectTimeline";
+import ProjectTimelineSection from "@/src/components/sections/projects/ProjectTimeline";
 import ProjectTechnologies from "@/src/components/sections/projects/ProjectTechnologies";
 import ProjectGallery from "@/src/components/sections/projects/ProjectGallery";
 import ProjectTestimonial from "@/src/components/sections/projects/ProjectTestimonial";
@@ -33,9 +38,14 @@ export async function generateMetadata({
   };
 }
 
+type ProjectDetailWithExtras = ProjectDetail & {
+  technologies?: ProjectTechnology[];
+  timeline?: ProjectTimeline[];
+};
+
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const project = getProjectBySlug(slug) as ProjectDetailWithExtras | undefined;
 
   if (!project) {
     notFound();
@@ -61,7 +71,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <ProjectTechnologies technologies={project.technologies} />
       )}
       {project.timeline && project.timeline.length > 0 && (
-        <ProjectTimeline timeline={project.timeline} />
+        <ProjectTimelineSection timeline={project.timeline} />
       )}
       {project.testimonial && (
         <ProjectTestimonial testimonial={project.testimonial} />

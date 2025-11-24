@@ -3,9 +3,7 @@ import { PROJECTS_DATA } from "@/src/data/project.data";
 import { SERVICES_DATA } from "@/src/data/service.data";
 import type { NavItem, TabItem } from "./types";
 
-const DEFAULT_SERVICE_HREF = SERVICES_DATA.length
-  ? `/services/${SERVICES_DATA[0].slug}`
-  : "/";
+const DEFAULT_SERVICE_HREF = "/services";
 
 const SERVICE_CATEGORY_ORDER = [
   "Digital",
@@ -162,7 +160,7 @@ export const NAVIGATION_ITEMS: NavItem[] = [
     columns: buildServiceColumns(),
     footerLink: {
       label: "View all services",
-      href: "/#services",
+      href: "/services",
           },
   },
   {
