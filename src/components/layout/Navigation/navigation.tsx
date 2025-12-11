@@ -98,7 +98,7 @@ export default function Navigation() {
                   isScrolled ? "text-slate-900" : "text-white"
                 }`}
               >
-                Logo
+                CodeCrest
               </Link>
             </div>
 

@@ -18,8 +18,8 @@ import {
 } from "@/src/lib/constants/contact";
 
 const APP_EMAIL = CONTACT_EMAIL;
-const APP_PHONE = "+1 (555) 123-4567";
-const APP_PHONE_2 = "+1 (555) 987-6543";
+const APP_PHONE = "+92 316 0417351";
+const APP_PHONE_2 = "+92 317 4557181";
 
 export default function ContactInfo() {
   const socialLinks = [
@@ -158,7 +158,9 @@ function Box({
         </h2>
       </div>
       <div className="flex items-center gap-x-2 p-4 py-12">{children}</div>
-      <div className="border-t border-gray-400 p-4"></div>
+      <div className="border-t border-gray-400 p-4">
+        {description && <p className="text-gray-600 text-sm">{description}</p>}
+      </div>
     </div>
   );
 }
