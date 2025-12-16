@@ -862,8 +862,8 @@ export const Footer = () => {
     >
       {/* Footer Content */}
       <div className="relative z-10">
-        <div className="flex flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:flex-row md:items-center md:justify-between p-10">
-          <div className="flex flex-col items-start justify-start gap-y-5 max-w-xs mx-0">
+        <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 py-10 sm:px-6 lg:px-8 md:flex-row md:items-start md:justify-center md:gap-16">
+          <div className="flex max-w-xs flex-col items-start justify-start gap-y-5">
             <Link href="/" className="flex items-center gap-2">
               <Icons.logo className="size-8" />
               <p className="text-xl font-semibold text-primary">
@@ -911,8 +911,8 @@ export const Footer = () => {
               <Icons.gdprDark className="size-12" />
             </div>
           </div>
-          <div className="pt-5 md:w-1/2">
-            <div className="flex flex-col items-start justify-start md:flex-row md:items-center md:justify-between gap-y-5 lg:pl-10">
+          <div className="w-full pt-2 md:flex-1 md:pt-0">
+            <div className="grid w-full grid-cols-2 gap-x-10 gap-y-8 sm:grid-cols-4 md:justify-items-center">
               {siteConfig.columns.map((column, columnIndex) => (
                 <ul key={columnIndex} className="flex flex-col gap-y-2">
                   <li className="mb-2 text-sm font-bold text-primary">
@@ -940,12 +940,12 @@ export const Footer = () => {
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mt-12 flex flex-wrap items-end justify-between gap-6 border-t border-slate-400/50 py-6">
-            <span className="text-muted-foreground order-last block text-center text-sm md:order-first">
+          <div className="mt-12 flex flex-col items-center justify-center gap-4 border-t border-slate-400/50 py-6 text-center md:flex-row md:gap-6">
+            <span className="text-muted-foreground block text-sm">
               © {new Date().getFullYear()} {siteConfig.company.name}, All
               rights reserved
             </span>
-            <div className="order-first flex flex-wrap justify-center gap-4 text-sm md:order-last">
+            <div className="flex flex-wrap justify-center gap-4 text-sm">
               {socialLinks.map((link) => (
                 <Link
                   key={link.id}
@@ -953,7 +953,7 @@ export const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
-                  className="flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-white/70 transition hover:border-white hover:text-white"
+                  className="flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-primary/70 transition  hover:text-primary"
                 >
                   <link.icon className="h-4 w-4" />
                   <span className="text-xs uppercase tracking-[0.25em]">
