@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { siteConfig } from "./config";
 import { Linkedin } from "lucide-react";
+import Image from "next/image";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -865,10 +866,12 @@ export const Footer = () => {
         <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 py-10 sm:px-6 lg:px-8 md:flex-row md:items-start md:justify-center md:gap-16">
           <div className="flex max-w-xs flex-col items-start justify-start gap-y-5">
             <Link href="/" className="flex items-center gap-2">
-              <Icons.logo className="size-8" />
-              <p className="text-xl font-semibold text-primary">
-                {siteConfig.company.name}
-              </p>
+              <Image 
+                src="/logo.png"
+                alt="CodeCrest"
+                width={150}
+                height={150}
+              />
             </Link>
             <p className="tracking-tight text-muted-foreground font-medium">
               {siteConfig.company.description}

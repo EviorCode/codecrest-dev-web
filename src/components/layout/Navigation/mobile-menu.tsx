@@ -198,7 +198,7 @@ export default function MobileMenu({
           <Link
             href="/contact"
             onClick={onClose}
-            className="w-full inline-flex h-11 px-5 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-150 items-center justify-center"
+            className="w-full inline-flex h-11 px-5 text-sm font-semibold text-white bg-purple-600 hover:bg-purple-700 rounded-lg transition-colors duration-150 items-center justify-center"
           >
             Contact Us
           </Link>
