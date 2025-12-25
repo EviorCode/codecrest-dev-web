@@ -3,7 +3,7 @@ import { Nunito } from "next/font/google";
 import "./globals.css";
 import { Footer } from "../components/layout/footer";
 import { Navigation } from "../components/layout/Navigation";
-
+import { Analytics } from "@vercel/analytics/next";
 const nunito = Nunito({
   variable: "--font-nunito",
   subsets: ["latin"],
@@ -28,6 +28,7 @@ export default function RootLayout({
         <Navigation />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
