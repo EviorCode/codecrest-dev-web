@@ -5,7 +5,7 @@ import { Button } from "@/src/components/ui/button";
 import { Input } from "@/src/components/ui/input";
 import { Textarea } from "@/src/components/ui/textarea";
 import { Label } from "@/src/components/ui/label";
-import { Linkedin } from "lucide-react";
+import { Linkedin, Phone } from "lucide-react";
 import {
   CONTACT_EMAIL,
   COMPANY_LINKEDIN_URL,
@@ -19,6 +19,9 @@ const socialLinks = [
     href: COMPANY_LINKEDIN_URL,
   },
 ];
+
+const APP_PHONE = "+923160417351";
+const APP_PHONE_2 = "+923034230144";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -118,6 +121,28 @@ export default function ContactForm() {
               >
                 {contactEmail}
               </a>
+
+              {/* Phone Numbers */}
+              <div className="mt-4">
+                <p className="text-white/60 mb-2">Or call us at</p>
+                <div className="flex flex-col space-y-2">
+                  <a
+                    href={`tel:${APP_PHONE}`}
+                    className="text-blue-400 hover:text-blue-300 hover:underline font-medium flex items-center gap-2"
+                  >
+                    <Phone className="h-4 w-4" />
+                    {APP_PHONE}
+                  </a>
+                  <a
+                    href={`tel:${APP_PHONE_2}`}
+                    className="text-blue-400 hover:text-blue-300 hover:underline font-medium flex items-center gap-2"
+                  >
+                    <Phone className="h-4 w-4" />
+                    {APP_PHONE_2}
+                  </a>
+                </div>
+              </div>
+
               <div className="flex items-center space-x-3 mt-4">
                 <span className="text-white/50">OR</span>
                 {socialLinks.map((link) => {

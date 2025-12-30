@@ -18,8 +18,8 @@ import {
 } from "@/src/lib/constants/contact";
 
 const APP_EMAIL = CONTACT_EMAIL;
-const APP_PHONE = "+39 334 232 0631";
-// const APP_PHONE_2 = "+92 317 4557181";
+const APP_PHONE = "+923160417351";
+const APP_PHONE_2 = "+923034230144";
 
 export default function ContactInfo() {
   const socialLinks = [
@@ -81,7 +81,7 @@ export default function ContactInfo() {
                 </a>
                 <CopyButton className="size-6" test={APP_PHONE} />
               </div>
-              {/* <div className="flex items-center gap-x-2">
+              <div className="flex items-center gap-x-2">
                 <a
                   href={`tel:${APP_PHONE_2}`}
                   className="block font-mono text-base font-medium tracking-wide hover:underline text-gray-900"
@@ -89,7 +89,7 @@ export default function ContactInfo() {
                   {APP_PHONE_2}
                 </a>
                 <CopyButton className="size-6" test={APP_PHONE_2} />
-              </div> */}
+              </div>
             </div>
           </Box>
         </div>

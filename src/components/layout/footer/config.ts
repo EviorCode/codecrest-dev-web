@@ -13,8 +13,8 @@ export const siteConfig = {
     location:
       "Italy, Pisa",
     email: CONTACT_EMAIL,
-    phonePrimary: "+39 334 232 0631",
-    phoneSecondary: "",
+    phonePrimary: "+923160417351",
+    phoneSecondary: "+923034230144",
     socials: {
       linkedin: COMPANY_LINKEDIN_URL,
     },
