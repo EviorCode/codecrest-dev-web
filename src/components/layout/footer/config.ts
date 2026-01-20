@@ -11,7 +11,7 @@ export const siteConfig = {
     description:
       "A product studio partnering with ambitious teams to ship AI-native platforms, modernize cloud stacks, and keep critical systems running.",
     location:
-      "Italy, Pisa",
+      "Pakistan, Lahore",
     email: CONTACT_EMAIL,
     phonePrimary: "+923160417351",
     phoneSecondary: "+923034230144",

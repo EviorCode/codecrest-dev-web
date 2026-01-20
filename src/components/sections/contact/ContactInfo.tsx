@@ -62,7 +62,7 @@ export default function ContactInfo() {
             description="Drop by our office for a chat."
           >
             <span className="font-mono text-base font-medium tracking-wide text-gray-900">
-              Italy, Pisa
+              Pakistan, Lahore
             </span>
           </Box>
           <Box
