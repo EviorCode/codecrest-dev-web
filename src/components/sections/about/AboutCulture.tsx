@@ -79,7 +79,7 @@ function BentoCard({
         "data-dark:bg-gray-800 data-dark:ring-white/15"
       )}
     >
-      <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 xl:h-116 shrink-0">
+      <div className="relative h-32 sm:h-40 md:h-48 lg:h-56 shrink-0">
         {graphic}
         {fade.includes("top") && (
           <div className="absolute inset-0 bg-linear-to-b from-white to-50%  group-data-dark:from-[-25%] opacity-25" />
@@ -88,11 +88,11 @@ function BentoCard({
           <div className="absolute inset-0 bg-linear-to-t from-white to-50%  group-data-dark:from-[-25%] opacity-25" />
         )}
       </div>
-      <div className="relative p-4 sm:p-6 md:p-8 lg:p-10 z-20 isolate mt-[-80px] sm:mt-[-90px] md:mt-[-100px] lg:mt-[-110px] xl:mt-[-120px] min-h-[140px] sm:min-h-[160px] md:min-h-[180px] lg:min-h-[200px] xl:min-h-[224px] backdrop-blur-xl text-white">
+      <div className="relative p-4 sm:p-5 md:p-6 z-20 isolate mt-[-60px] sm:mt-[-70px] md:mt-[-80px] min-h-[100px] sm:min-h-[110px] md:min-h-[120px] backdrop-blur-xl text-white">
         <h1 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-white/60">
           {eyebrow}
         </h1>
-        <p className="mt-1 text-lg sm:text-xl md:text-2xl font-medium tracking-tight text-white ">
+        <p className="mt-1 text-base sm:text-lg md:text-xl font-medium tracking-tight text-white">
           {title}
         </p>
         <p className="mt-2 max-w-[600px] text-xs sm:text-sm leading-relaxed text-white/70 dark:text-white/60 ">
@@ -105,14 +105,14 @@ function BentoCard({
 
 export default function AboutCulture() {
   return (
-    <section className="pt-16 sm:pt-20 md:pt-24 lg:pt-32 container mx-auto  w-full flex flex-col px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-10 sm:py-12 md:py-16 lg:py-20">
-      <h1 className="font-heading font-bold tracking-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-black">
+    <section className="pt-12 sm:pt-16 md:pt-20 container mx-auto w-full flex flex-col px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-10 md:py-12">
+      <h1 className="font-heading font-bold tracking-tight text-2xl sm:text-3xl md:text-4xl text-black">
         Culture
       </h1>
-      <p className="max-w-3xl text-base sm:text-lg md:text-xl lg:text-2xl font-medium tracking-tight mt-2 sm:mt-3 md:mt-4 text-black/50">
+      <p className="max-w-2xl text-sm sm:text-base md:text-lg font-medium tracking-tight mt-2 text-black/50">
         Principles that shape every engagement.
       </p>
-      <div className="mt-8 sm:mt-10 md:mt-12 lg:mt-16 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:grid-cols-6 lg:grid-rows-2 lg:gap-4 xl:gap-6">
+      <div className="mt-6 sm:mt-8 md:mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5 lg:grid-cols-6 lg:grid-rows-2">
         {culturePillars.map((pillar) => (
           <BentoCard
             key={pillar.title}

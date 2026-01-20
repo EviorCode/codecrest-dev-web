@@ -23,7 +23,7 @@ export default function AboutCTA() {
             Explore case studies
           </Link>
           <Link
-            href="/#contact"
+            href="/contact"
             className="px-6 py-3 bg-gray-900 text-white rounded-full font-semibold hover:bg-gray-800 transition"
           >
             Schedule a call
