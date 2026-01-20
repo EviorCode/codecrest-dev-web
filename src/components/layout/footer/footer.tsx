@@ -863,7 +863,7 @@ export const Footer = () => {
     >
       {/* Footer Content */}
       <div className="relative z-10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 py-10 sm:px-6 lg:px-8 md:flex-row md:items-start md:justify-center md:gap-16">
+        <div className=" flex  flex-col gap-10 px-4 py-10 sm:px-6 lg:px-8 md:flex-row md:items-start md:justify-center md:gap-16">
           <div className="flex max-w-xs flex-col items-start justify-start gap-y-5">
             <Link href="/" className="flex items-center gap-2">
               <Image src="/logo.png" alt="CodeCrest" width={150} height={150} />
@@ -899,16 +899,6 @@ export const Footer = () => {
                   {siteConfig.company.phoneSecondary || ""}
                 </a>
               </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <Icons.soc2 className="size-12" />
-              <Icons.hipaa className="size-12" />
-              <Icons.gdpr className="size-12" />
-            </div>
-            <div className="items-center gap-2 hidden">
-              <Icons.soc2Dark className="size-12" />
-              <Icons.hipaaDark className="size-12" />
-              <Icons.gdprDark className="size-12" />
             </div>
           </div>
           <div className="w-full pt-2 md:flex-1 md:pt-0">
