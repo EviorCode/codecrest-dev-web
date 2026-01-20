@@ -85,7 +85,7 @@ export default function AboutHero() {
             Explore case studies
           </Link>
           <Link
-            href="/#contact"
+            href="/contact"
             className="inline-flex items-center justify-center bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-slate-200"
           >
             Connect with our team
