@@ -84,12 +84,12 @@ export default function Navigation() {
       <header
         className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-200 ${
           isScrolled
-            ? "bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm"
+            ? "bg-white/95 backdrop-blur-md border-b border-slate-400 shadow-sm"
             : "bg-transparent border-b border-white/10"
         }`}
         style={{ willChange: "background-color, border-color, box-shadow" }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className=" px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="shrink-0">

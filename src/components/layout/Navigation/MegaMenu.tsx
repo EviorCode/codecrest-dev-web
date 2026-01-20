@@ -55,14 +55,14 @@ export default function MegaMenu({
 
   return (
     <div
-      className="fixed inset-x-0 top-[4.25rem] z-50 animate-in fade-in slide-in-from-top-1 duration-200 px-4 sm:px-6 lg:px-8"
+      className="fixed inset-x-0 top-[4.25rem] z-50 animate-in fade-in slide-in-from-top-1 duration-200"
       onMouseLeave={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
       style={{ backfaceVisibility: "hidden", perspective: "1000px" }}
     >
-      <div className="mx-auto w-full max-w-[1400px] max-h-[calc(100vh-5rem)] overflow-y-auto overflow-x-hidden border border-slate-200/80 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] backdrop-blur-xl">
-        <div className="p-6 sm:p-8 lg:p-10">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-8">
+      <div className="w-full max-h-[calc(100vh-5rem)] overflow-y-auto overflow-x-hidden border-y border-slate-200/80 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] backdrop-blur-xl">
+        <div className="px-6 sm:px-12 lg:px-16 xl:px-24 py-8 lg:py-10">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 lg:gap-10">
             {/* Hero Column - Enhanced */}
             <div className="space-y-4 pb-6 sm:pb-0 sm:pr-6 border-b sm:border-b-0 sm:border-r border-slate-200/60">
               <div className="space-y-3">
