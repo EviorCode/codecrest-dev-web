@@ -1,7 +1,8 @@
 "use client";
+import { useState, useCallback } from "react";
 import Link from "next/link";
-import { motion, Variants } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { motion, Variants, AnimatePresence } from "framer-motion";
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import type { ServiceDetail } from "@/src/data/service.data";
 
@@ -106,28 +107,110 @@ const AnimatedLetter = ({ letter }: { letter: string }) => {
   );
 };
 
+const slideVariants = {
+  enter: (direction: number) => ({
+    opacity: 0,
+    x: direction > 0 ? 60 : -60,
+  }),
+  center: {
+    opacity: 1,
+    x: 0,
+  },
+  exit: (direction: number) => ({
+    opacity: 0,
+    x: direction < 0 ? 60 : -60,
+  }),
+};
+
 export function ServicesGrid({ sections }: ServicesGridProps) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const goToNext = useCallback(() => {
+    setDirection(1);
+    setCurrentIndex((prev) => (prev === sections.length - 1 ? 0 : prev + 1));
+  }, [sections.length]);
+
+  const goToPrev = useCallback(() => {
+    setDirection(-1);
+    setCurrentIndex((prev) => (prev === 0 ? sections.length - 1 : prev - 1));
+  }, [sections.length]);
+
+  const currentSection = sections[currentIndex];
+
   return (
     <section className="px-4 py-12 md:px-8 md:py-16">
-      <div className="mx-auto w-full max-w-6xl space-y-16 md:space-y-20">
-        {sections.map(({ category, services }) => (
-          <div key={category} className="space-y-8">
-            <div className="space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-black/40">
-                {category}
-              </p>
-              <h2 className="text-3xl font-bold text-black md:text-4xl lg:text-5xl">
-                {category} Services
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
-              {services.map((service) => (
-                <Card key={service.id} service={service} />
-              ))}
-            </div>
+      <div className="mx-auto w-full max-w-6xl">
+        {/* Category Navigation */}
+        <div className="flex items-center justify-between mb-10">
+          <div className="flex items-center gap-4">
+            <button
+              onClick={goToPrev}
+              className="p-2 rounded-full border border-black/20 text-black/60 hover:text-black hover:border-black/40 transition-all"
+              aria-label="Previous category"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              onClick={goToNext}
+              className="p-2 rounded-full border border-black/20 text-black/60 hover:text-black hover:border-black/40 transition-all"
+              aria-label="Next category"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
           </div>
-        ))}
+
+          {/* Category Dots */}
+          <div className="flex gap-2">
+            {sections.map((section, index) => (
+              <button
+                key={section.category}
+                onClick={() => {
+                  setDirection(index > currentIndex ? 1 : -1);
+                  setCurrentIndex(index);
+                }}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? "bg-black w-8"
+                    : "bg-black/20 w-2 hover:bg-black/40"
+                }`}
+                aria-label={`Go to ${section.category}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Carousel Content */}
+        <div className="relative overflow-hidden">
+          <AnimatePresence initial={false} custom={direction} mode="wait">
+            <motion.div
+              key={currentIndex}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            >
+              <div className="space-y-8">
+                <div className="space-y-2">
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-black/40">
+                    {currentSection.category}
+                  </p>
+                  <h2 className="text-3xl font-bold text-black md:text-4xl lg:text-5xl">
+                    {currentSection.category} Services
+                  </h2>
+                </div>
+
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
+                  {currentSection.services.map((service) => (
+                    <Card key={service.id} service={service} />
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );
