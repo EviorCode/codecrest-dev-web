@@ -290,27 +290,6 @@ export default function Slideshow() {
               )}
             </div>
           </div>
-
-          {/* Bottom left credit text */}
-          <div
-            className="absolute bottom-[8%] left-8 z-20 pointer-events-none"
-            style={{
-              willChange: "opacity, transform",
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "Arial, sans-serif",
-                fontSize: "10px",
-                color: "white",
-                letterSpacing: "1px",
-                textTransform: "uppercase",
-                opacity: 0.7,
-              }}
-            >
-              Art & Design by @codecrest
-            </div>
-          </div>
         </div>
       ))}
 
