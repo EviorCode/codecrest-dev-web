@@ -35,11 +35,11 @@ export default function ProjectsList() {
   return (
     <section className="w-full bg-white py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 sm:gap-12 sm:px-6 md:gap-16 lg:px-8">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+        <div className="flex flex-col items-center text-center gap-3">
           <h2 className="text-2xl font-semibold tracking-tight text-black sm:text-3xl md:text-4xl lg:text-5xl">
             Our Projects
           </h2>
-          <p className="text-xs text-slate-600 sm:text-sm">
+          <p className="text-sm text-slate-600 sm:text-base max-w-xl">
             Transformative solutions that drive business impact and innovation.
           </p>
         </div>
