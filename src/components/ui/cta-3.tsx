@@ -3,6 +3,7 @@
 import { ArrowRightIcon } from "lucide-react";
 import { Button } from "@/src/components/ui/button";
 import { useRef, useEffect } from "react";
+import Link from "next/link";
 
 export function CallToAction() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -55,15 +56,11 @@ export function CallToAction() {
         </div>
 
         <div className="flex flex-col items-center gap-4 sm:flex-row">
-          <Button
-            variant="outline"
-            className="border-gray-600 bg-transparent text-white backdrop-blur-sm hover:border-gray-400 hover:bg-white/10"
-          >
-            Contact Sales
-          </Button>
-          <Button className="bg-white text-black hover:bg-gray-100">
-            Get Started
-            <ArrowRightIcon className="ml-2 size-4" />
+          <Button asChild className="bg-white text-black hover:bg-gray-100">
+            <Link href="/contact">
+              Get Started
+              <ArrowRightIcon className="ml-2 size-4" />
+            </Link>
           </Button>
         </div>
       </div>

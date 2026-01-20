@@ -32,7 +32,7 @@ export default function Navigation() {
         item.matchPrefixes?.some((prefix) => pathname.startsWith(prefix))
       ) ??
       TAB_ITEMS.find((item) => item.href === pathname) ??
-      TAB_ITEMS[0],
+      null,
     [pathname]
   );
 

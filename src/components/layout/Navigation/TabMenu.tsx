@@ -9,7 +9,7 @@ import MegaMenu from "./MegaMenu";
 
 interface TabMenuProps {
   items: TabItem[];
-  activeTab: TabItem;
+  activeTab: TabItem | null;
   setActiveTab: (item: TabItem) => void;
   hoveredTab: TabItem | null;
   setHoveredTab: (item: TabItem | null) => void;
@@ -108,10 +108,10 @@ export default function TabMenu({
                   <span
                     className={`relative z-10 font-medium text-sm transition-colors duration-150 ${
                       isScrolled
-                        ? hoveredTab?.id === item.id || activeTab.id === item.id
+                        ? hoveredTab?.id === item.id || activeTab?.id === item.id
                           ? "text-slate-900"
                           : "text-slate-600"
-                        : hoveredTab?.id === item.id || activeTab.id === item.id
+                        : hoveredTab?.id === item.id || activeTab?.id === item.id
                           ? "text-white"
                           : "text-white/80"
                     }`}
@@ -121,7 +121,7 @@ export default function TabMenu({
                 </div>
 
                 {/* Active indicator */}
-                {activeTab.id === item.id && (
+                {activeTab?.id === item.id && (
                   <motion.div
                     layoutId="active"
                     className={`absolute bottom-0 left-0 right-0 w-full h-[2px] ${
