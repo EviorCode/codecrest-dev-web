@@ -1,5 +1,5 @@
-import HorizontalScrollCarousel from "../../ui/horizontal-scroll-carousel";
+import ProjectsCarousel from "../../ui/projects-carousel";
 
 export function Featured() {
-  return <HorizontalScrollCarousel />;
+  return <ProjectsCarousel />;
 }
