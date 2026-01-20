@@ -41,6 +41,7 @@ export async function generateMetadata({
 type ProjectDetailWithExtras = ProjectDetail & {
   technologies?: ProjectTechnology[];
   timeline?: ProjectTimeline[];
+  testimonials?: { quote: string; author: string; role: string }[];
 };
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
@@ -73,8 +74,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {project.timeline && project.timeline.length > 0 && (
         <ProjectTimelineSection timeline={project.timeline} />
       )}
-      {project.testimonial && (
-        <ProjectTestimonial testimonial={project.testimonial} />
+      {(project.testimonials || project.testimonial) && (
+        <ProjectTestimonial
+          testimonial={project.testimonial}
+          testimonials={project.testimonials}
+        />
       )}
     </div>
   );

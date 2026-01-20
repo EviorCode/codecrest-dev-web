@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import type { ReactNode } from "react";
 import type { ProjectDetail } from "@/src/data/project.data";
-import { CheckCircle2, Clock, Calendar } from "lucide-react";
 
 const vertexShader = `
   attribute vec4 position;
@@ -168,25 +167,6 @@ function createShader(gl: WebGLRenderingContext, type: number, source: string) {
   return shader;
 }
 
-const getStatusColor = (status: string) => {
-  switch (status) {
-    case "completed":
-      return "border-green-500/50 bg-green-500/10 text-green-400";
-    case "in-progress":
-      return "border-blue-500/50 bg-blue-500/10 text-blue-400";
-    case "on-hold":
-      return "border-yellow-500/50 bg-yellow-500/10 text-yellow-400";
-    default:
-      return "border-white/20 bg-white/5 text-white/70";
-  }
-};
-
-const getStatusIcon = (status: string) => {
-  if (status === "completed") {
-    return <CheckCircle2 className="h-4 w-4" />;
-  }
-  return <Clock className="h-4 w-4" />;
-};
 
 export default function ProjectHero({ project }: { project: ProjectDetail }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -294,22 +274,6 @@ export default function ProjectHero({ project }: { project: ProjectDetail }) {
     };
   }, []);
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
-
-  const statusText =
-    project.status === "completed"
-      ? "Completed"
-      : project.status === "in-progress"
-        ? "In Progress"
-        : "On Hold";
-
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black">
       <div className="absolute inset-0">
@@ -329,36 +293,7 @@ export default function ProjectHero({ project }: { project: ProjectDetail }) {
         style={{ background: "transparent", opacity: 0.35 }}
       />
 
-      <div className="relative z-10 h-full flex flex-col justify-between p-6 sm:p-8 md:p-12">
-        {/* Top text */}
-        <div className="text-left">
-          <div className="flex flex-wrap items-center gap-3 mb-3">
-            <span
-              className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium ${getStatusColor(
-                project.status
-              )}`}
-            >
-              {getStatusIcon(project.status)}
-              {statusText}
-            </span>
-            <span className="text-gray-300 text-xs sm:text-sm uppercase tracking-wider font-bold">
-              {project.category}
-            </span>
-          </div>
-          <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-gray-400">
-            <span className="flex items-center gap-1.5">
-              <Calendar className="h-3.5 w-3.5" />
-              {project.completedAt
-                ? formatDate(project.completedAt)
-                : `Started ${formatDate(project.startedAt)}`}
-            </span>
-            <span>•</span>
-            <span>{project.duration}</span>
-            <span>•</span>
-            <span>{project.industry}</span>
-          </div>
-        </div>
-
+      <div className="relative z-10 h-full flex flex-col justify-end p-6 sm:p-8 md:p-12">
         {/* Bottom content */}
         <div className="flex flex-col md:flex-row justify-between items-end gap-6">
           <div className="text-left mb-8 md:mb-0 flex-1">

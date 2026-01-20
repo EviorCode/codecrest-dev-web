@@ -90,6 +90,11 @@ export interface ProjectDetail {
     author: string;
     role: string;
   };
+  testimonials?: {
+    quote: string;
+    author: string;
+    role: string;
+  }[];
 
   // Metadata
   tags: string[];
@@ -277,6 +282,35 @@ export const PROJECTS_DATA: ProjectDetail[] = [
       author: "Ayesha Khan",
       role: "Wellness Enthusiast",
     },
+
+    // Testimonials
+    testimonials: [
+      {
+        quote: "VMeals has transformed the way I approach healthy eating. Their personalized plans and fresh meals make maintaining my fitness goals effortless.",
+        author: "Ayesha Khan",
+        role: "Wellness Enthusiast",
+      },
+      {
+        quote: "The convenience of having nutritious meals delivered daily has been a game-changer for my busy schedule. Quality is consistently excellent.",
+        author: "Omar Hassan",
+        role: "Business Executive",
+      },
+      {
+        quote: "As a fitness coach, I recommend VMeals to all my clients. The macro-balanced meals are perfect for anyone serious about their health.",
+        author: "Sarah Mitchell",
+        role: "Certified Fitness Coach",
+      },
+      {
+        quote: "Finally found a meal service that understands dietary restrictions. Their attention to detail with my allergies gives me peace of mind.",
+        author: "Fatima Al-Rashid",
+        role: "Healthcare Professional",
+      },
+      {
+        quote: "The variety keeps me excited about healthy eating. Six months in and I've never had a boring meal. Highly recommend!",
+        author: "James Chen",
+        role: "Software Engineer",
+      },
+    ],
 
     // Tags
     tags: [
@@ -474,6 +508,35 @@ export const PROJECTS_DATA: ProjectDetail[] = [
       role: "CTO, Healthcare Solutions Inc.",
     },
 
+    // Testimonials
+    testimonials: [
+      {
+        quote: "DuneSync transformed our software capabilities with their expert team and tailored solutions. Their professionalism helped us achieve our digital transformation goals faster than expected.",
+        author: "James Williams",
+        role: "CTO, Healthcare Solutions Inc.",
+      },
+      {
+        quote: "The API integration work was flawless. Our systems now communicate seamlessly, improving our operational efficiency by 40%.",
+        author: "Maria Santos",
+        role: "Operations Director",
+      },
+      {
+        quote: "Their staff augmentation service provided us with top-tier developers who integrated perfectly with our team culture.",
+        author: "Robert Kim",
+        role: "Engineering Manager",
+      },
+      {
+        quote: "DuneSync's ERP implementation streamlined our entire business process. The ROI was visible within the first quarter.",
+        author: "Linda Thompson",
+        role: "CFO, Manufacturing Corp",
+      },
+      {
+        quote: "Outstanding DevOps expertise. Our deployment frequency increased 5x while maintaining zero downtime.",
+        author: "Ahmed Patel",
+        role: "VP of Technology",
+      },
+    ],
+
     // Tags
     tags: [
       "Custom Software Development",
@@ -665,6 +728,35 @@ export const PROJECTS_DATA: ProjectDetail[] = [
       author: "Michael Lee",
       role: "Senior Developer, Singapore Property Group",
     },
+
+    // Testimonials
+    testimonials: [
+      {
+        quote: "REDAS is instrumental in keeping our community informed and prepared amidst evolving regulations. Their engagement sessions have been invaluable.",
+        author: "Michael Lee",
+        role: "Senior Developer, Singapore Property Group",
+      },
+      {
+        quote: "The regulatory updates and industry insights from REDAS have helped us navigate complex compliance requirements with confidence.",
+        author: "Jennifer Tan",
+        role: "Legal Director, Urban Developments",
+      },
+      {
+        quote: "REDAS seminars on green technology have shaped our sustainable development strategy. Essential knowledge for modern developers.",
+        author: "David Ng",
+        role: "Sustainability Officer",
+      },
+      {
+        quote: "The networking opportunities through REDAS events have led to valuable partnerships that accelerated our project timelines.",
+        author: "Rachel Lim",
+        role: "Business Development Manager",
+      },
+      {
+        quote: "Their AI and PropTech sessions helped us understand emerging technologies and their practical applications in real estate.",
+        author: "Kevin Wong",
+        role: "Innovation Lead, PropertyTech Ventures",
+      },
+    ],
 
     // Tags
     tags: [
@@ -865,6 +957,35 @@ export const PROJECTS_DATA: ProjectDetail[] = [
       role: "Chief Information Officer",
     },
 
+    // Testimonials
+    testimonials: [
+      {
+        quote: "VST Inc. has been a pivotal partner in our digital journey, delivering robust automation and cloud solutions that transformed our operations.",
+        author: "Linda Roberts",
+        role: "Chief Information Officer",
+      },
+      {
+        quote: "Their business process automation reduced our manual tasks by 70%. The efficiency gains have been remarkable.",
+        author: "Thomas Wright",
+        role: "Operations Manager",
+      },
+      {
+        quote: "The digital marketing strategies implemented by VST Inc. doubled our online engagement within six months.",
+        author: "Emily Chen",
+        role: "Marketing Director",
+      },
+      {
+        quote: "Their cybersecurity assessment identified vulnerabilities we never knew existed. Our infrastructure is now truly secure.",
+        author: "Marcus Johnson",
+        role: "IT Security Lead",
+      },
+      {
+        quote: "Cloud migration was seamless. VST Inc. handled everything professionally with zero disruption to our daily operations.",
+        author: "Sandra Moore",
+        role: "Technical Director",
+      },
+    ],
+
     // Tags
     tags: [
       "Digital Transformation",
@@ -1033,10 +1154,39 @@ export const PROJECTS_DATA: ProjectDetail[] = [
     // Testimonial
     testimonial: {
       quote:
-        "EduPortal has revolutionized the way we manage academic and administrative tasks. The seamless communication with parents and the mobile learning capabilities have greatly enhanced our school’s efficiency.",
+        "EduPortal has revolutionized the way we manage academic and administrative tasks. The seamless communication with parents and the mobile learning capabilities have greatly enhanced our school's efficiency.",
       author: "Mrs. Ayesha Malik",
       role: "Principal, Crescent School",
     },
+
+    // Testimonials
+    testimonials: [
+      {
+        quote: "EduPortal has revolutionized the way we manage academic and administrative tasks. The mobile learning capabilities have greatly enhanced our efficiency.",
+        author: "Mrs. Ayesha Malik",
+        role: "Principal, Crescent School",
+      },
+      {
+        quote: "Parent-teacher communication has never been easier. We can share progress reports and updates instantly.",
+        author: "Mr. Hassan Ali",
+        role: "Vice Principal, Lahore Grammar School",
+      },
+      {
+        quote: "The attendance tracking system alone saved our staff hours of manual work every week. A true game-changer.",
+        author: "Ms. Fatima Shah",
+        role: "Administrative Head",
+      },
+      {
+        quote: "Online examination module worked flawlessly during remote learning. Students and teachers adapted quickly.",
+        author: "Dr. Imran Ahmed",
+        role: "Academic Director",
+      },
+      {
+        quote: "EduPortal's analytics give us insights we never had before. We can now make data-driven decisions for student success.",
+        author: "Mrs. Samina Rashid",
+        role: "Quality Assurance Lead",
+      },
+    ],
 
     // Tags
     tags: [
@@ -1215,10 +1365,39 @@ export const PROJECTS_DATA: ProjectDetail[] = [
     // Testimonial
     testimonial: {
       quote:
-        "Evidanza’s integrated CPM platform has significantly improved our ability to monitor performance and make strategic decisions faster. The automation tools have freed our staff to focus on high-impact activities.",
+        "Evidanza's integrated CPM platform has significantly improved our ability to monitor performance and make strategic decisions faster. The automation tools have freed our staff to focus on high-impact activities.",
       author: "Dr. Martin Schneider",
       role: "CEO, Mittelstand Corporation",
     },
+
+    // Testimonials
+    testimonials: [
+      {
+        quote: "Evidanza's integrated CPM platform has significantly improved our ability to monitor performance and make strategic decisions faster.",
+        author: "Dr. Martin Schneider",
+        role: "CEO, Mittelstand Corporation",
+      },
+      {
+        quote: "The real-time dashboards give us visibility we never had before. We can spot trends and issues immediately.",
+        author: "Anna Weber",
+        role: "Head of Analytics",
+      },
+      {
+        quote: "SYNAPSE automation reduced our month-end close process from 2 weeks to just 3 days. Incredible efficiency gains.",
+        author: "Frank Mueller",
+        role: "Finance Director",
+      },
+      {
+        quote: "The planning module transformed our budgeting process. Collaboration across departments is now seamless.",
+        author: "Christina Bauer",
+        role: "Strategic Planning Manager",
+      },
+      {
+        quote: "Evidanza's process management tools helped us identify and eliminate bottlenecks we didn't know existed.",
+        author: "Stefan Klein",
+        role: "Operations Excellence Lead",
+      },
+    ],
 
     // Tags
     tags: [
