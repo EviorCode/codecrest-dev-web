@@ -296,7 +296,7 @@ export default function ServiceHero({ service }: { service: ServiceDetail }) {
         {/* Top text */}
         <div className="text-left">
           <p className="text-gray-300 text-sm md:text-base uppercase tracking-wider font-bold">
-            {service.category}
+            {/* {service.category} */}
           </p>
         </div>
 

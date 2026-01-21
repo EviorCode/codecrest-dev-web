@@ -159,7 +159,7 @@ function ProjectCard({ project }: { project: ProjectDetail }) {
           {project.title}
         </h3>
         <p className="text-white/70 text-sm md:text-base max-w-2xl line-clamp-2 mb-4">
-          {project.heroSubtitle}
+          {project.heroDescription}
         </p>
         <div className="h-0.5 w-12 bg-white/50 transition-all duration-300 group-hover:w-24 group-hover:bg-white" />
       </div>

@@ -5,7 +5,8 @@ import { Button } from "@/src/components/ui/button";
 import { Input } from "@/src/components/ui/input";
 import { Textarea } from "@/src/components/ui/textarea";
 import { Label } from "@/src/components/ui/label";
-import { Linkedin, Phone } from "lucide-react";
+import { Linkedin, Phone, Mail, MapPin, Check, Copy } from "lucide-react";
+import { cn } from "@/lib/utils";
 import {
   CONTACT_EMAIL,
   COMPANY_LINKEDIN_URL,
@@ -22,6 +23,43 @@ const socialLinks = [
 
 const APP_PHONE = "+923160417351";
 const APP_PHONE_2 = "+923034230144";
+
+function CopyButton({
+  text,
+  className,
+}: {
+  text: string;
+  className?: string;
+}) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
+  };
+
+  return (
+    <button
+      onClick={handleCopy}
+      className={cn(
+        "p-1.5 rounded-md hover:bg-white/10 transition-colors",
+        className
+      )}
+      aria-label={copied ? "Copied" : "Copy to clipboard"}
+    >
+      {copied ? (
+        <Check className="size-4 text-green-400" />
+      ) : (
+        <Copy className="size-4 text-white/40 hover:text-white/60" />
+      )}
+    </button>
+  );
+}
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -98,12 +136,100 @@ export default function ContactForm() {
       {/* Main Content Overlay */}
       <div className="relative z-10 flex flex-col items-center justify-between w-full h-full p-4 md:p-8 lg:p-12">
         {/* Main Section - Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-7xl p-4 md:p-8 rounded-xl grow">
-          {/* Left Side: Title */}
-          <div className="flex flex-col justify-end p-4 lg:p-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg max-w-lg">
-              We can turn your dream project into reality
-            </h1>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 w-full max-w-7xl p-4 md:p-8 rounded-xl grow">
+          {/* Left Side: Contact Info */}
+          <div className="flex flex-col justify-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Get in touch
+            </h2>
+            <p className="text-white/60 mb-10 text-lg">
+              Have a project in mind? We&apos;d love to hear from you. Reach out and let&apos;s create something amazing together.
+            </p>
+
+            {/* Contact Details */}
+            <div className="space-y-8">
+              {/* Email */}
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-white/5 rounded-lg border border-white/10">
+                  <Mail className="h-5 w-5 text-white" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-white/50 text-sm mb-1">Email</p>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href={`mailto:${contactEmail}`}
+                      className="text-white hover:text-blue-400 transition-colors font-medium"
+                    >
+                      {contactEmail}
+                    </a>
+                    <CopyButton text={contactEmail} />
+                  </div>
+                </div>
+              </div>
+
+              {/* Phone */}
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-white/5 rounded-lg border border-white/10">
+                  <Phone className="h-5 w-5 text-white" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-white/50 text-sm mb-1">Phone</p>
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <a
+                        href={`tel:${APP_PHONE}`}
+                        className="text-white hover:text-blue-400 transition-colors font-medium"
+                      >
+                        {APP_PHONE}
+                      </a>
+                      <CopyButton text={APP_PHONE} />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <a
+                        href={`tel:${APP_PHONE_2}`}
+                        className="text-white hover:text-blue-400 transition-colors font-medium"
+                      >
+                        {APP_PHONE_2}
+                      </a>
+                      <CopyButton text={APP_PHONE_2} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Location */}
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-white/5 rounded-lg border border-white/10">
+                  <MapPin className="h-5 w-5 text-white" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-white/50 text-sm mb-1">Office</p>
+                  <p className="text-white font-medium">Pakistan, Lahore</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="mt-10 pt-8 border-t border-white/10">
+              <p className="text-white/50 text-sm mb-4">Connect with us</p>
+              <div className="flex items-center gap-3">
+                {socialLinks.map((link) => {
+                  const Icon = link.icon;
+                  return (
+                    <a
+                      key={link.id}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={link.name}
+                      className="p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors"
+                    >
+                      <Icon className="h-5 w-5 text-white" />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
           </div>
 
           {/* Right Side: Contact Form */}
@@ -111,60 +237,6 @@ export default function ContactForm() {
             <h2 className="text-2xl font-bold text-white mb-6">
               Let&apos;s talk!
             </h2>
-
-            {/* Email & Socials */}
-            <div className="mb-6">
-              <p className="text-white/60 mb-2">Mail us at</p>
-              <a
-                href={`mailto:${contactEmail}`}
-                className="text-blue-400 hover:text-blue-300 hover:underline font-medium"
-              >
-                {contactEmail}
-              </a>
-
-              {/* Phone Numbers */}
-              <div className="mt-4">
-                <p className="text-white/60 mb-2">Or call us at</p>
-                <div className="flex flex-col space-y-2">
-                  <a
-                    href={`tel:${APP_PHONE}`}
-                    className="text-blue-400 hover:text-blue-300 hover:underline font-medium flex items-center gap-2"
-                  >
-                    <Phone className="h-4 w-4" />
-                    {APP_PHONE}
-                  </a>
-                  <a
-                    href={`tel:${APP_PHONE_2}`}
-                    className="text-blue-400 hover:text-blue-300 hover:underline font-medium flex items-center gap-2"
-                  >
-                    <Phone className="h-4 w-4" />
-                    {APP_PHONE_2}
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3 mt-4">
-                <span className="text-white/50">OR</span>
-                {socialLinks.map((link) => {
-                  const Icon = link.icon;
-                  return (
-                    <Button key={link.id} variant="outline" size="icon" asChild>
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={link.name}
-                        className="h-10 w-10 bg-purple-500/20 rounded-full flex items-center justify-center border-none!"
-                      >
-                        <Icon className="h-4 w-4 text-purple-500" />
-                      </a>
-                    </Button>
-                  );
-                })}
-              </div>
-            </div>
-
-            <hr className="my-6 border-white/10" />
 
             {/* Form */}
             {isSubmitted ? (

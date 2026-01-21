@@ -100,31 +100,9 @@ export default function ContactInfo() {
               "z-10 absolute inset-0 size-full",
               "bg-[radial-gradient(color-mix(in_oklab,rgba(0,0,0,0.3),transparent)_1px,transparent_1px)]",
               "bg-size-[32px_32px]",
-              "mask-[radial-gradient(ellipse_at_center,white_30%,transparent)]"
+              "mask-[radial-gradient(ellipse_at_center,white_30%,transparent)]",
             )}
           />
-
-          <div className="relative z-10 space-y-6">
-            <h2 className="text-center text-3xl font-bold md:text-4xl text-gray-900">
-              Find us online
-            </h2>
-            <div className="flex flex-wrap items-center gap-4">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gray-100 hover:bg-gray-400 flex flex-1 justify-center items-center gap-x-2 rounded-md border border-gray-400 px-4 py-2 transition-colors"
-                >
-                  <link.icon className="size-4 text-gray-700" />
-                  <span className="font-mono text-sm font-medium tracking-wide text-gray-700">
-                    {link.label}
-                  </span>
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -148,7 +126,7 @@ function Box({
     <div
       className={cn(
         "flex flex-col justify-between border-b border-gray-400 md:border-r md:border-b-0 bg-white",
-        className
+        className,
       )}
     >
       <div className="bg-gray-50 flex items-center gap-x-3 border-b border-gray-400 p-4">
@@ -201,7 +179,7 @@ function CopyButton({
       <div
         className={cn(
           "transition-all",
-          copied ? "scale-100 opacity-100" : "scale-0 opacity-0"
+          copied ? "scale-100 opacity-100" : "scale-0 opacity-0",
         )}
       >
         <Check className="size-3.5 stroke-emerald-500" aria-hidden="true" />
@@ -209,7 +187,7 @@ function CopyButton({
       <div
         className={cn(
           "absolute transition-all",
-          copied ? "scale-0 opacity-0" : "scale-100 opacity-100"
+          copied ? "scale-0 opacity-0" : "scale-100 opacity-100",
         )}
       >
         <Copy aria-hidden="true" className="size-3.5" />
