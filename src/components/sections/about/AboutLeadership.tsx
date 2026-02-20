@@ -40,7 +40,7 @@ const teamCategories: TeamCategory[] = [
       {
         name: "Muhammad Rizwan",
         designation: "Business Development Manager",
-        imageSrc: "/team/placeholder.png",
+        imageSrc: "/team/muhammad-rizwan.jpeg",
       },
     ],
   },
