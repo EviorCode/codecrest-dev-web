@@ -21,8 +21,7 @@ const socialLinks = [
   },
 ];
 
-const APP_PHONE = "+923160417351";
-const APP_PHONE_2 = "+923034230144";
+const APP_PHONE = "+1 (705) 485-4903";
 
 function CopyButton({
   text,
@@ -174,25 +173,14 @@ export default function ContactForm() {
                 </div>
                 <div className="flex-1">
                   <p className="text-white/50 text-sm mb-1">Phone</p>
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <a
-                        href={`tel:${APP_PHONE}`}
-                        className="text-white hover:text-blue-400 transition-colors font-medium"
-                      >
-                        {APP_PHONE}
-                      </a>
-                      <CopyButton text={APP_PHONE} />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <a
-                        href={`tel:${APP_PHONE_2}`}
-                        className="text-white hover:text-blue-400 transition-colors font-medium"
-                      >
-                        {APP_PHONE_2}
-                      </a>
-                      <CopyButton text={APP_PHONE_2} />
-                    </div>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href={`tel:${APP_PHONE}`}
+                      className="text-white hover:text-blue-400 transition-colors font-medium"
+                    >
+                      {APP_PHONE}
+                    </a>
+                    <CopyButton text={APP_PHONE} />
                   </div>
                 </div>
               </div>
@@ -204,7 +192,7 @@ export default function ContactForm() {
                 </div>
                 <div className="flex-1">
                   <p className="text-white/50 text-sm mb-1">Office</p>
-                  <p className="text-white font-medium">Pakistan, Lahore</p>
+                  <p className="text-white font-medium">Via G.A. Acquaviva 218, Caserta, Italy</p>
                 </div>
               </div>
             </div>

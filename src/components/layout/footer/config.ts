@@ -11,10 +11,10 @@ export const siteConfig = {
     description:
       "A product studio partnering with ambitious teams to ship AI-native platforms, modernize cloud stacks, and keep critical systems running.",
     location:
-      "Pakistan, Lahore",
+      "Via G.A. Acquaviva 218, Caserta, Italy",
     email: CONTACT_EMAIL,
-    phonePrimary: "+923160417351",
-    phoneSecondary: "+923034230144",
+    phonePrimary: "+1 (705) 485-4903",
+    phoneSecondary: "",
     socials: {
       linkedin: COMPANY_LINKEDIN_URL,
     },
